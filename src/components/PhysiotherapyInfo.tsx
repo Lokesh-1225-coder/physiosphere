@@ -14,110 +14,84 @@ import {
 export default function PhysiotherapyInfo() {
   const topics = [
     {
-      title: "What Physiotherapy Means",
-      desc: "Physiotherapy (physical therapy) is a clinical healthcare profession focused on restoring and sustaining natural bodily movement, functional strength, and physical well-being throughout life.",
-      icon: HelpCircle,
-      accent: "border-blue-200 bg-blue-50/50 text-blue-700"
+      title: "What is Physiotherapy?",
+      desc: "Physiotherapy is an evidence-based clinical profession dedicated to restoring movement, strength, and physical function after illness, injury, or surgery.",
+      icon: HelpCircle
     },
     {
       title: "Improving Movement & Mobility",
-      desc: "Whether stiffness is caused by arthritis, sitting for long work hours, or surgery, physiotherapy restores joint flexibility, lubricates tissues, and trains muscles to move smoothly without pain.",
-      icon: Activity,
-      accent: "border-emerald-200 bg-emerald-50/50 text-emerald-700"
+      desc: "Through targeted mobilization and stretching, physiotherapy reduces joint stiffness, restores natural range of motion, and helps you walk and move pain-free.",
+      icon: Activity
     },
     {
-      title: "How Physiotherapists Assess Conditions",
-      desc: "During your first session, the therapist examines your posture, joint range, nerve pathways, balance, and muscle strength to pinpoint the true root cause rather than just treating symptoms.",
-      icon: Stethoscope,
-      accent: "border-indigo-200 bg-indigo-50/50 text-indigo-700"
+      title: "Physical Assessment",
+      desc: "A thorough initial examination checks posture, spinal alignment, joint flexibility, nerve response, and muscle strength to identify the root cause of pain.",
+      icon: Stethoscope
     },
     {
-      title: "The Role of Therapeutic Exercises",
-      desc: "Specially calibrated stretches, resistance movements, and core drills rebuild weakened fibers, offload stressed joints, and retrain the body to handle daily loads safely.",
-      icon: Dumbbell,
-      accent: "border-teal-200 bg-teal-50/50 text-teal-700"
+      title: "Therapeutic Exercises",
+      desc: "Custom exercise prescriptions rebuild stabilizing muscles, correct muscle imbalances, and restore physical endurance without overloading joints.",
+      icon: Dumbbell
     },
     {
       title: "Manual Therapy & Mobilization",
-      desc: "Hands-on techniques including soft-tissue release, passive joint glide, and trigger point manipulation immediately relieve muscle spasms and increase tight joint mobility.",
-      icon: HandMetal,
-      accent: "border-amber-200 bg-amber-50/50 text-amber-700"
+      desc: "Hands-on techniques including soft-tissue release, trigger-point therapy, and gentle joint mobilization relieve acute spasms and improve tissue mobility.",
+      icon: HandMetal
     },
     {
-      title: "Pain Management & Injury Recovery",
-      desc: "Using scientific biomechanics and evidence-based techniques, physiotherapy reduces chronic inflammation, speeds tissue repair, and enables drug-free pain relief.",
-      icon: ShieldAlert,
-      accent: "border-sky-200 bg-sky-50/50 text-sky-700"
+      title: "Pain Management & Recovery",
+      desc: "Non-invasive methods promote natural healing, reduce inflammation, and help patients achieve lasting pain relief without over-reliance on medication.",
+      icon: ShieldAlert
     },
     {
       title: "Preventive Physiotherapy",
-      desc: "Proactive conditioning prevents injuries, halts progressive joint degeneration, enhances ergonomic sitting habits, and protects senior citizens against dangerous slips and falls.",
-      icon: ShieldPlus,
-      accent: "border-violet-200 bg-violet-50/50 text-violet-700"
+      desc: "Targeted conditioning prevents recurring back strain, corrects desk posture, and trains balance to protect seniors against slips and falls.",
+      icon: ShieldPlus
     }
   ];
 
   return (
-    <section id="what-is-physiotherapy" className="py-16 lg:py-24 bg-slate-50 border-b border-slate-100">
+    <section id="what-is-physiotherapy" className="py-12 sm:py-16 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider">
-            Patient Education Guide
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Understanding Physiotherapy & How It Heals You
-          </h2>
-          <p className="text-slate-600 text-base sm:text-lg">
-            Physiotherapy is not just massage or exercise—it is science-backed medical rehabilitation designed to restore your independence and active lifestyle.
+        <div className="max-w-3xl mb-10 text-center sm:text-left">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-1">
+            Educational Guide
           </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-blue-600 mx-auto rounded-full" />
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+            What is Physiotherapy & How Does It Help?
+          </h2>
+          <p className="text-sm text-slate-600 mt-2">
+            A clear explanation of how professional physical therapy restores strength, relieves pain, and improves mobility.
+          </p>
         </div>
 
-        {/* Informational Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Clean Topic Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {topics.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className={`bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between ${
+                className={`bg-white rounded-lg p-5 border border-slate-200 flex flex-col justify-between ${
                   idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
                 }`}
               >
                 <div>
-                  <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 ${item.accent}`}>
-                    <Icon className="w-6 h-6" />
+                  <div className="w-9 h-9 rounded-md bg-slate-100 flex items-center justify-center mb-3 text-blue-600">
+                    <Icon className="w-4 h-4" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Simple Summary Box */}
-        <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-base font-bold text-slate-900">
-              Not sure if physiotherapy is suitable for your condition?
-            </h4>
-            <p className="text-sm text-slate-600">
-              Speak directly with our physiotherapists. We review your symptoms and advise the best recovery pathway.
-            </p>
-          </div>
-          <a
-            href="tel:7675069960"
-            className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-[#0284c7] text-white font-bold text-xs transition"
-          >
-            Ask a Physiotherapist: 7675069960
-          </a>
         </div>
 
       </div>

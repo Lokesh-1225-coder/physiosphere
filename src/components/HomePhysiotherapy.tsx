@@ -11,7 +11,6 @@ import {
   TrendingUp,
   BookOpen,
   Heart,
-  Shield,
   Accessibility
 } from "lucide-react";
 
@@ -22,82 +21,81 @@ interface HomePhysiotherapyProps {
 export default function HomePhysiotherapy({ onOpenBooking }: HomePhysiotherapyProps) {
   const steps = [
     {
-      title: "1. Initial Patient Assessment",
-      desc: "Our therapist arrives at your doorstep with diagnostic tools to test muscle tone, posture, joint range, reflexes, and pain thresholds.",
+      title: "1. Initial Assessment",
+      desc: "Our therapist examines muscle tone, posture, joint range, nerve reflexes, and pain levels in your home.",
       icon: ClipboardCheck
     },
     {
-      title: "2. Medical History & Review",
-      desc: "We review your surgeon's discharge summary, X-rays, MRI scans, medications, and previous treatments to ensure 100% safe care.",
+      title: "2. Medical History Review",
+      desc: "We review discharge summaries, surgeon notes, X-rays, MRI scans, and current prescriptions.",
       icon: FileText
     },
     {
-      title: "3. Personalized Treatment Plans",
-      desc: "A custom protocol is mapped out targeting your specific recovery timeline, lifestyle routines, and individual mobility goals.",
+      title: "3. Personalized Care Plan",
+      desc: "A step-by-step treatment plan mapped to your personal recovery timeline and daily functional goals.",
       icon: Activity
     },
     {
-      title: "4. Guided Therapeutic Exercises",
-      desc: "One-to-one manual supervision ensuring exact form, rep counts, and joint alignment without risking strain or re-injury.",
+      title: "4. Guided Exercises",
+      desc: "One-to-one manual supervision ensuring exact form, repetitions, and safety during every movement.",
       icon: Dumbbell
     },
     {
-      title: "5. Mobility & Flexibility Training",
-      desc: "Targeted stretching, passive range mobilization, and neuromuscular re-education to overcome stubborn stiffness and joint freezing.",
+      title: "5. Mobility & Flexibility",
+      desc: "Targeted stretching and passive range mobilization to relieve stiffness and restore natural joint glide.",
       icon: Footprints
     },
     {
-      title: "6. Post-Surgical Rehabilitation",
-      desc: "Specialized bedside protocols for knee/hip replacements, spinal surgeries, and fractures to reduce edema and re-establish walking.",
+      title: "6. Post-Surgical Care",
+      desc: "Specialized bedside care for knee/hip replacements, fractures, and spinal surgeries to restore walking.",
       icon: Stethoscope
     },
     {
-      title: "7. Continuous Progress Monitoring",
-      desc: "Session-by-session evaluation of joint degrees, walking stamina, and pain reduction to steadily advance your exercises.",
+      title: "7. Progress Monitoring",
+      desc: "Regular tracking of joint degrees, walking stamina, and pain scores to safely advance your exercises.",
       icon: TrendingUp
     },
     {
-      title: "8. Home Exercise & Ergonomics",
-      desc: "Clear daily home regimens, sitting posture modifications, and family/caregiver instructions for 24/7 recovery continuity.",
+      title: "8. Home Exercise Program",
+      desc: "Clear daily exercise instructions and family/caregiver positioning guidance for continuous progress.",
       icon: BookOpen
     }
   ];
 
   return (
-    <section id="home-physiotherapy" className="py-16 lg:py-24 bg-white border-b border-slate-100">
+    <section id="home-physiotherapy" className="py-12 sm:py-16 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider">
-            Doorstep Care Protocol
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            The Complete Home Physiotherapy Experience
-          </h2>
-          <p className="text-slate-600 text-base sm:text-lg">
-            Experience high-quality clinical rehabilitation without stepping outside your front door.
+        <div className="max-w-3xl mb-10 text-center sm:text-left">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-1">
+            Doorstep Experience
           </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-emerald-500 mx-auto rounded-full" />
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+            How Home Physiotherapy Works
+          </h2>
+          <p className="text-sm text-slate-600 mt-2">
+            The complete clinical rehabilitation process delivered at your doorstep across Hyderabad.
+          </p>
         </div>
 
         {/* 8-Step Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.title}
-                className="bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/80 hover:border-blue-200 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 text-[#003b73] flex items-center justify-center mb-4 shadow-2xs">
-                    <Icon className="w-5 h-5 text-[#0284c7]" />
+                  <div className="w-9 h-9 rounded-md bg-white border border-slate-200 text-blue-600 flex items-center justify-center mb-3">
+                    <Icon className="w-4 h-4" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">
+                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">
                     {step.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -106,66 +104,54 @@ export default function HomePhysiotherapy({ onOpenBooking }: HomePhysiotherapyPr
           })}
         </div>
 
-        {/* Specialized Focus on Elderly & Post-Op Patients */}
-        <div className="rounded-3xl bg-gradient-to-br from-[#002b54] to-[#0284c7] text-white p-8 sm:p-12 shadow-xl">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
-              <Shield className="w-4 h-4" /> Why Home Care Matters Most
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold mb-4 leading-tight">
-              Designed Specially for Senior Citizens, Post-Operative Patients & Mobility Challenges
+        {/* High-Value Patients Callout: Senior Citizens & Post-Op */}
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-8">
+          <div className="max-w-3xl mb-6">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+              Ideal for Seniors, Post-Operative Patients & Mobility Challenges
             </h3>
-            <p className="text-blue-100 text-sm sm:text-base leading-relaxed mb-8">
-              Traveling through city traffic, climbing clinic stairs, and waiting in crowded lobbies can be excruciating and dangerous for individuals dealing with acute surgical pain or severe frailty. Home physiotherapy completely eliminates these hurdles.
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+              Navigating traffic, climbing clinic stairs, and sitting in crowded waiting rooms can be painful and exhausting for individuals dealing with surgical recovery or frailty. Home care eliminates these barriers entirely.
             </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-900">
-              {/* Card 1 */}
-              <div className="bg-white/95 rounded-2xl p-6 backdrop-blur-sm border border-white/20">
-                <Heart className="w-8 h-8 text-rose-500 mb-3" />
-                <h4 className="font-bold text-slate-900 text-base mb-2">
-                  Elderly Family Members
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Gentle, respectful therapy in their familiar environment minimizes confusion, reduces fall risks, and keeps seniors comfortable.
-                </p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="bg-white/95 rounded-2xl p-6 backdrop-blur-sm border border-white/20">
-                <Stethoscope className="w-8 h-8 text-blue-600 mb-3" />
-                <h4 className="font-bold text-slate-900 text-base mb-2">
-                  Post-Surgical Recovery
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Crucial bedside support after knee/hip replacement, spinal fixation, or cardiac procedures without risking surgical wound strain.
-                </p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="bg-white/95 rounded-2xl p-6 backdrop-blur-sm border border-white/20">
-                <Accessibility className="w-8 h-8 text-emerald-600 mb-3" />
-                <h4 className="font-bold text-slate-900 text-base mb-2">
-                  Mobility Impairments
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Rehabilitation tailored to actual household obstacles: transitioning safely from your own bed to wheelchair or walking in the hallway.
-                </p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white p-4 rounded-lg border border-slate-200">
+              <Heart className="w-5 h-5 text-rose-600 mb-2" />
+              <h4 className="text-sm font-bold text-slate-900 mb-1">Elderly Family Members</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Gentle balance and mobility therapy in a familiar setting prevents falls and maintains senior independence.
+              </p>
             </div>
 
-            <div className="mt-8 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="text-xs text-blue-200">
-                PhysioSphere therapists bring sanitized portable equipment for every session.
-              </span>
-              <button
-                type="button"
-                onClick={onOpenBooking}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow cursor-pointer transition"
-              >
-                Schedule Doorstep Assessment
-              </button>
+            <div className="bg-white p-4 rounded-lg border border-slate-200">
+              <Stethoscope className="w-5 h-5 text-blue-600 mb-2" />
+              <h4 className="text-sm font-bold text-slate-900 mb-1">Post-Surgical Care</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Bedside therapy after joint replacement or spine surgery starts safely without risking car transfer strain.
+              </p>
             </div>
+
+            <div className="bg-white p-4 rounded-lg border border-slate-200">
+              <Accessibility className="w-5 h-5 text-emerald-600 mb-2" />
+              <h4 className="text-sm font-bold text-slate-900 mb-1">Mobility Difficulties</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Training tailored to your home environment—getting out of bed, walking hallways, and managing steps securely.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <span className="text-xs text-slate-500 text-center sm:text-left">
+              Portable diagnostic and therapeutic equipment is brought to every home visit.
+            </span>
+            <button
+              type="button"
+              onClick={onOpenBooking}
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-md transition cursor-pointer"
+            >
+              Book Home Assessment
+            </button>
           </div>
         </div>
 

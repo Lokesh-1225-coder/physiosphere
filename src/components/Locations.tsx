@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Search, MapPin, CheckCircle, Calendar, AlertCircle } from "lucide-react";
+import { Search, MapPin, CheckCircle2, Calendar, AlertCircle } from "lucide-react";
 import { HYDERABAD_ZONES } from "@/data/physiosphereData";
 
 interface LocationsProps {
@@ -10,11 +10,10 @@ interface LocationsProps {
 
 export default function Locations({ onOpenBooking }: LocationsProps) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedZone, setSelectedZone] = useState<string>("All");
+  const [selectedZone, setSelectedZone] = useState("All");
 
   const zonesList = ["All", ...HYDERABAD_ZONES.map((z) => z.zone)];
 
-  // Filter locations by search query and active zone
   const filteredAreas = useMemo(() => {
     let zones = HYDERABAD_ZONES;
     if (selectedZone !== "All") {
@@ -32,114 +31,92 @@ export default function Locations({ onOpenBooking }: LocationsProps) {
       .filter((z) => z.areas.length > 0);
   }, [searchQuery, selectedZone]);
 
-  const totalFilteredCount = filteredAreas.reduce((acc, curr) => acc + curr.areas.length, 0);
+  const totalCount = filteredAreas.reduce((acc, curr) => acc + curr.areas.length, 0);
 
   return (
-    <section id="locations" className="py-16 lg:py-24 bg-white border-b border-slate-100">
+    <section id="locations" className="py-12 sm:py-16 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider">
-            Coverage Directory
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+        <div className="max-w-3xl mb-8 text-center sm:text-left">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-1">
+            Service Coverage
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             Home Physiotherapy Services Across Hyderabad
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg">
+          <p className="text-sm text-slate-600 mt-2">
             PhysioSphere has a team of 8 physiotherapists spread across Hyderabad, helping make professional home physiotherapy accessible across multiple neighbourhoods.
           </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-emerald-500 mx-auto rounded-full" />
         </div>
 
         {/* Search & Zone Controls */}
-        <div className="max-w-3xl mx-auto mb-10 space-y-4">
-          {/* Real-time search bar */}
-          <div className="relative">
-            <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+        <div className="space-y-3 mb-8">
+          <div className="relative max-w-md">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search your neighbourhood (e.g., Banjara Hills, Gachibowli, Kukatpally, Uppal)..."
+              placeholder="Search your area (e.g. Banjara Hills, Kukatpally)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3.5 rounded-2xl border border-slate-200 bg-slate-50/60 focus:bg-white text-sm text-slate-900 focus:border-[#0284c7] transition shadow-xs"
+              className="w-full pl-9 pr-8 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm text-slate-900 focus:border-blue-600 transition"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 cursor-pointer font-bold"
               >
-                Clear
+                ×
               </button>
             )}
           </div>
 
-          {/* Zone filter badges */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+          <div className="flex flex-wrap items-center gap-1.5">
             {zonesList.map((z) => (
               <button
                 key={z}
                 type="button"
                 onClick={() => setSelectedZone(z)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                className={`px-3 py-1 rounded-md text-xs font-semibold transition cursor-pointer ${
                   selectedZone === z
-                    ? "bg-[#003b73] text-white shadow-xs"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    ? "bg-slate-900 text-white"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                 }`}
               >
                 {z}
               </button>
             ))}
-          </div>
-
-          <div className="text-center text-xs text-slate-500">
-            Showing <span className="font-bold text-slate-800">{totalFilteredCount}</span> service coverage areas
+            <span className="text-xs text-slate-500 ml-2">
+              ({totalCount} areas)
+            </span>
           </div>
         </div>
 
-        {/* Location Display */}
+        {/* Areas List */}
         {filteredAreas.length === 0 ? (
-          <div className="bg-slate-50 rounded-2xl p-8 text-center max-w-md mx-auto space-y-3">
-            <MapPin className="w-8 h-8 text-slate-400 mx-auto" />
-            <h4 className="font-bold text-slate-800">No matching area found</h4>
-            <p className="text-xs text-slate-500">
-              Don’t worry! We cover almost all Hyderabad neighbourhoods with our team of 8 therapists. Call us to confirm your area.
-            </p>
-            <button
-              type="button"
-              onClick={onOpenBooking}
-              className="px-4 py-2 bg-[#003b73] text-white text-xs font-bold rounded-xl"
-            >
-              Inquire About Your Area
-            </button>
+          <div className="p-8 text-center bg-slate-50 rounded-lg border border-slate-200 max-w-md space-y-2">
+            <MapPin className="w-6 h-6 text-slate-400 mx-auto" />
+            <p className="text-xs font-bold text-slate-800">No matching neighborhood found</p>
+            <p className="text-xs text-slate-500">Contact us directly to confirm availability in your area.</p>
           </div>
         ) : (
-          <div className="space-y-8">
+          <div className="space-y-6">
             {filteredAreas.map((zone) => (
-              <div
-                key={zone.zone}
-                className="bg-slate-50/80 rounded-3xl p-6 sm:p-8 border border-slate-200/80"
-              >
-                <div className="flex items-center gap-2 mb-5">
-                  <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#003b73] flex items-center justify-center font-bold text-xs">
-                    <MapPin className="w-4 h-4 text-[#0284c7]" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900">
-                    {zone.zone}
-                  </h3>
-                  <span className="text-xs text-slate-500 font-semibold bg-white px-2 py-0.5 rounded-md border border-slate-200">
-                    {zone.areas.length} Areas
-                  </span>
+              <div key={zone.zone} className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <MapPin className="w-4 h-4 text-blue-600" />
+                  <h3 className="text-sm font-bold text-slate-900">{zone.zone}</h3>
+                  <span className="text-xs text-slate-500">({zone.areas.length})</span>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
                   {zone.areas.map((area) => (
                     <div
                       key={area}
-                      className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-slate-100 text-xs font-medium text-slate-700 hover:border-emerald-300 hover:text-emerald-700 transition shadow-2xs"
+                      className="flex items-center gap-1.5 p-2 rounded-md bg-white border border-slate-200 text-xs text-slate-700 font-medium"
                     >
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                       <span className="truncate">{area}</span>
                     </div>
                   ))}
@@ -149,26 +126,27 @@ export default function Locations({ onOpenBooking }: LocationsProps) {
           </div>
         )}
 
-        {/* Important Transparency Notice (Strict compliance with guidelines) */}
-        <div className="mt-12 bg-blue-50/80 border border-blue-200/80 rounded-2xl p-4 sm:p-6 text-xs text-slate-600 max-w-4xl mx-auto space-y-2">
-          <div className="flex items-start gap-2 font-bold text-blue-900">
-            <AlertCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+        {/* Clear Compliance Note */}
+        <div className="mt-8 p-4 rounded-lg bg-blue-50/70 border border-blue-200 text-xs text-slate-600 space-y-1.5">
+          <div className="flex items-center gap-2 font-bold text-blue-900">
+            <AlertCircle className="w-4 h-4 text-blue-600 flex-shrink-0" />
             <span>Important Service Coverage Information:</span>
           </div>
           <p className="leading-relaxed pl-6">
-            The areas listed above represent our <strong>doorstep home-physiotherapy service coverage zones</strong> across Hyderabad, not walk-in clinic branches. We provide treatment directly at your home. Individual appointment slot availability depends on the daily routes of our 8 physiotherapists and will be promptly confirmed by our clinical coordination team upon receiving your booking request.
+            The areas listed above represent home-service coverage areas across Hyderabad, not confirmed clinic branches. We do not operate walk-in clinics at each location. Appointment availability is confirmed by our clinical coordination team based on scheduling and route feasibility.
           </p>
         </div>
 
-        {/* Call-to-action */}
-        <div className="mt-10 text-center">
+        {/* CTA */}
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="text-xs text-slate-500">Need physiotherapy at your home?</span>
           <button
             type="button"
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#003b73] to-[#0284c7] hover:from-[#002f5c] hover:to-[#0369a1] text-white font-bold text-sm shadow-md hover:shadow-xl transition cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition cursor-pointer"
           >
-            <Calendar className="w-4 h-4 text-emerald-300" />
-            <span>Check Availability & Book Home Visit</span>
+            <Calendar className="w-3.5 h-3.5" />
+            <span>Check Availability & Book</span>
           </button>
         </div>
 

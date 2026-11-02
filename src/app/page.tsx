@@ -34,7 +34,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-white">
+    <main className="min-h-screen flex flex-col bg-white pb-16 md:pb-0">
       {/* 1. Sticky Navigation Bar */}
       <Navbar onOpenBooking={() => handleOpenBooking()} />
 
