@@ -15,7 +15,7 @@ export default function PhysiotherapyInfo() {
   const topics = [
     {
       title: "What is Physiotherapy?",
-      desc: "Physiotherapy is an evidence-based clinical profession dedicated to restoring movement, strength, and physical function after illness, injury, or surgery.",
+      desc: "Physiotherapy is an evidence-based clinical healthcare profession dedicated to restoring movement, strength, and physical function after illness, injury, or surgery.",
       icon: HelpCircle
     },
     {
@@ -51,38 +51,38 @@ export default function PhysiotherapyInfo() {
   ];
 
   return (
-    <section id="what-is-physiotherapy" className="py-12 sm:py-16 bg-slate-50 border-b border-slate-200">
+    <section id="what-is-physiotherapy" className="py-14 sm:py-20 bg-[#f0f7fd] border-b border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 text-center sm:text-left">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-1">
+        <div className="max-w-3xl mb-12 text-center sm:text-left">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
             Educational Guide
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#0a2540] tracking-tight leading-tight">
             What is Physiotherapy & How Does It Help?
           </h2>
-          <p className="text-sm text-slate-600 mt-2">
+          <p className="text-sm sm:text-base text-slate-600 mt-2">
             A clear explanation of how professional physical therapy restores strength, relieves pain, and improves mobility.
           </p>
         </div>
 
-        {/* Clean Topic Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Clean Topic Grid with Cursor Highlighting */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {topics.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className={`bg-white rounded-lg p-5 border border-slate-200 flex flex-col justify-between ${
+                className={`bg-white rounded-xl p-6 border border-blue-100/90 shadow-xs highlight-card flex flex-col justify-between ${
                   idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
                 }`}
               >
                 <div>
-                  <div className="w-9 h-9 rounded-md bg-slate-100 flex items-center justify-center mb-3 text-blue-600">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-3.5 text-blue-600">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">
+                  <h3 className="text-base font-bold text-[#0a2540] mb-2">
                     {item.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">

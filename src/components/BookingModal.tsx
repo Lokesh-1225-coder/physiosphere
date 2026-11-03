@@ -7,11 +7,11 @@ import {
   CheckCircle2,
   AlertCircle,
   Phone,
-  MessageSquare,
   Loader2
 } from "lucide-react";
 import { BRAND_INFO, CONDITIONS_TREATED, SERVICE_CATEGORIES } from "@/data/physiosphereData";
 import { BookingFormData, BookingResponse } from "@/types/booking";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -151,7 +151,7 @@ export default function BookingModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-slate-900 text-white p-4 sm:p-5 flex items-center justify-between border-b border-slate-800 flex-shrink-0">
+        <div className="bg-[#0a2540] text-white p-4 sm:p-5 flex items-center justify-between border-b border-blue-900 flex-shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-md bg-blue-600 flex items-center justify-center text-white">
               <Calendar className="w-4 h-4" />
@@ -160,7 +160,7 @@ export default function BookingModal({
               <h2 id="booking-modal-title" className="text-base sm:text-lg font-bold leading-tight">
                 Book a Home Visit
               </h2>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-blue-200">
                 Doorstep Physiotherapy Across Hyderabad
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function BookingModal({
           <button
             type="button"
             onClick={resetAndClose}
-            className="p-1.5 text-slate-400 hover:text-white rounded-md transition cursor-pointer"
+            className="p-1.5 text-blue-200 hover:text-white rounded-md transition cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -183,19 +183,19 @@ export default function BookingModal({
               <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+              <h3 className="text-lg sm:text-xl font-bold text-[#0a2540] leading-snug">
                 Your appointment request has been submitted successfully!
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                 Our PhysioSphere team will contact you shortly to discuss your requirements and appointment availability.
               </p>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 max-w-md mx-auto text-left space-y-2 mt-4 text-xs">
-                <span className="font-semibold text-slate-900 block">Need immediate assistance?</span>
+              <div className="bg-[#f0f7fd] border border-blue-200 rounded-xl p-4 max-w-md mx-auto text-left space-y-2 mt-4 text-xs">
+                <span className="font-bold text-[#0a2540] block">Need immediate assistance?</span>
                 <div className="grid grid-cols-2 gap-2">
                   <a
                     href={`tel:${BRAND_INFO.phonePrimary}`}
-                    className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-md border border-slate-200 bg-white font-semibold text-slate-800"
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg border border-slate-200 bg-white font-bold text-slate-800 hover:bg-slate-50 transition"
                   >
                     <Phone className="w-3.5 h-3.5 text-blue-600" />
                     <span>Call Us</span>
@@ -204,9 +204,9 @@ export default function BookingModal({
                     href={BRAND_INFO.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-md bg-emerald-600 text-white font-semibold"
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-emerald-600 text-white font-bold hover:bg-emerald-700 transition"
                   >
-                    <MessageSquare className="w-3.5 h-3.5" />
+                    <WhatsAppIcon className="w-4 h-4 fill-white" />
                     <span>WhatsApp</span>
                   </a>
                 </div>
@@ -216,7 +216,7 @@ export default function BookingModal({
                 <button
                   type="button"
                   onClick={resetAndClose}
-                  className="px-5 py-2 rounded-md bg-slate-900 text-white font-semibold text-xs transition cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-[#0a2540] hover:bg-[#0c2f52] text-white font-bold text-xs transition cursor-pointer"
                 >
                   Done
                 </button>
@@ -386,33 +386,35 @@ export default function BookingModal({
                 {formErrors.description && <p className="text-[11px] text-red-600 mt-0.5">{formErrors.description}</p>}
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button - Enlarged */}
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 px-4 rounded-md font-semibold text-white bg-blue-600 hover:bg-blue-700 transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed text-sm"
+                  className="w-full py-4 px-6 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed text-base shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99]"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Submitting...</span>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Submitting Appointment Request...</span>
                     </>
                   ) : (
-                    <span>Request Appointment</span>
+                    <span>Request Doorstep Appointment</span>
                   )}
                 </button>
               </div>
 
               {/* Quick direct links */}
-              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                 <span>Or contact directly:</span>
-                <div className="flex gap-3">
-                  <a href={`tel:${BRAND_INFO.phonePrimary}`} className="text-blue-600 hover:underline font-semibold">
-                    Call {BRAND_INFO.phonePrimary}
+                <div className="flex items-center gap-3">
+                  <a href={`tel:${BRAND_INFO.phonePrimary}`} className="text-blue-600 hover:underline font-bold flex items-center gap-1">
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>Call {BRAND_INFO.phonePrimary}</span>
                   </a>
-                  <a href={BRAND_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline font-semibold">
-                    WhatsApp
+                  <a href={BRAND_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline font-bold flex items-center gap-1">
+                    <WhatsAppIcon className="w-3.5 h-3.5 fill-emerald-600" />
+                    <span>WhatsApp</span>
                   </a>
                 </div>
               </div>

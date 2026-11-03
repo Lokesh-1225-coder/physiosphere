@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   ClipboardCheck,
   FileText,
@@ -11,7 +12,9 @@ import {
   TrendingUp,
   BookOpen,
   Heart,
-  Accessibility
+  Accessibility,
+  Calendar,
+  CheckCircle2
 } from "lucide-react";
 
 interface HomePhysiotherapyProps {
@@ -63,39 +66,39 @@ export default function HomePhysiotherapy({ onOpenBooking }: HomePhysiotherapyPr
   ];
 
   return (
-    <section id="home-physiotherapy" className="py-12 sm:py-16 bg-white border-b border-slate-200">
+    <section id="home-physiotherapy" className="py-14 sm:py-20 bg-white border-b border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 text-center sm:text-left">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-1">
+        <div className="max-w-3xl mb-12 text-center sm:text-left">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
             Doorstep Experience
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#0a2540] tracking-tight leading-tight">
             How Home Physiotherapy Works
           </h2>
-          <p className="text-sm text-slate-600 mt-2">
+          <p className="text-sm sm:text-base text-slate-600 mt-2">
             The complete clinical rehabilitation process delivered at your doorstep across Hyderabad.
           </p>
         </div>
 
-        {/* 8-Step Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {/* 8-Step Grid with Cursor Highlighting */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
           {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.title}
-                className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between"
+                className="bg-[#f0f7fd] rounded-xl p-5 border border-blue-100 shadow-xs highlight-card flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-9 h-9 rounded-md bg-white border border-slate-200 text-blue-600 flex items-center justify-center mb-3">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-lg bg-white border border-blue-200 text-blue-600 flex items-center justify-center mb-3 shadow-2xs">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">
+                  <h3 className="text-sm sm:text-base font-bold text-[#0a2540] mb-1.5">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -104,53 +107,81 @@ export default function HomePhysiotherapy({ onOpenBooking }: HomePhysiotherapyPr
           })}
         </div>
 
-        {/* High-Value Patients Callout: Senior Citizens & Post-Op */}
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-8">
-          <div className="max-w-3xl mb-6">
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-              Ideal for Seniors, Post-Operative Patients & Mobility Challenges
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-              Navigating traffic, climbing clinic stairs, and sitting in crowded waiting rooms can be painful and exhausting for individuals dealing with surgical recovery or frailty. Home care eliminates these barriers entirely.
-            </p>
+        {/* Realistic Photography Callout: Senior Citizens & Post-Op */}
+        <div className="bg-[#f0f7fd] border border-blue-200/80 rounded-2xl p-6 sm:p-10 shadow-xs highlight-card">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+            <div className="lg:col-span-7 space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100/70 px-3 py-1 rounded-full">
+                Specialized Home Patient Care
+              </span>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a2540] leading-tight">
+                Ideal for Seniors, Post-Operative Patients & Mobility Restrictions
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                Navigating Hyderabad traffic, climbing steep clinic stairs, and waiting in crowded clinics can aggravate pain and cause immense fatigue. Home physiotherapy provides direct, dignified care at bedside.
+              </p>
+            </div>
+
+            <div className="lg:col-span-5 grid grid-cols-2 gap-3">
+              <div className="relative h-44 rounded-xl overflow-hidden border border-blue-200 shadow-sm">
+                <Image
+                  src="/images/sections/home-care.jpg"
+                  alt="Physiotherapy treatment at home"
+                  fill
+                  sizes="240px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-44 rounded-xl overflow-hidden border border-blue-200 shadow-sm">
+                <Image
+                  src="/images/sections/elderly-care.jpg"
+                  alt="Compassionate elderly mobility therapy"
+                  fill
+                  sizes="240px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-white p-4 rounded-lg border border-slate-200">
-              <Heart className="w-5 h-5 text-rose-600 mb-2" />
-              <h4 className="text-sm font-bold text-slate-900 mb-1">Elderly Family Members</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Gentle balance and mobility therapy in a familiar setting prevents falls and maintains senior independence.
+            <div className="bg-white p-5 rounded-xl border border-blue-100 shadow-xs highlight-card">
+              <Heart className="w-6 h-6 text-rose-600 mb-2.5" />
+              <h4 className="text-base font-bold text-[#0a2540] mb-1">Elderly Family Members</h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Gentle balance and mobility therapy in a familiar setting prevents dangerous falls and maintains senior independence.
               </p>
             </div>
 
-            <div className="bg-white p-4 rounded-lg border border-slate-200">
-              <Stethoscope className="w-5 h-5 text-blue-600 mb-2" />
-              <h4 className="text-sm font-bold text-slate-900 mb-1">Post-Surgical Care</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Bedside therapy after joint replacement or spine surgery starts safely without risking car transfer strain.
+            <div className="bg-white p-5 rounded-xl border border-blue-100 shadow-xs highlight-card">
+              <Stethoscope className="w-6 h-6 text-blue-600 mb-2.5" />
+              <h4 className="text-base font-bold text-[#0a2540] mb-1">Post-Surgical Bedside Care</h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Immediate therapy after knee or hip replacement starts safely at bedside without risking car transit strain.
               </p>
             </div>
 
-            <div className="bg-white p-4 rounded-lg border border-slate-200">
-              <Accessibility className="w-5 h-5 text-emerald-600 mb-2" />
-              <h4 className="text-sm font-bold text-slate-900 mb-1">Mobility Difficulties</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Training tailored to your home environment—getting out of bed, walking hallways, and managing steps securely.
+            <div className="bg-white p-5 rounded-xl border border-blue-100 shadow-xs highlight-card">
+              <Accessibility className="w-6 h-6 text-emerald-600 mb-2.5" />
+              <h4 className="text-base font-bold text-[#0a2540] mb-1">Mobility Difficulties</h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Functional training tailored to your home environment—getting out of bed, walking hallways, and managing steps securely.
               </p>
             </div>
           </div>
 
-          <div className="mt-6 pt-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span className="text-xs text-slate-500 text-center sm:text-left">
+          <div className="mt-8 pt-6 border-t border-blue-200/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span className="text-xs sm:text-sm text-slate-600 flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
               Portable diagnostic and therapeutic equipment is brought to every home visit.
             </span>
             <button
               type="button"
               onClick={onOpenBooking}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-md transition cursor-pointer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02] cursor-pointer"
             >
-              Book Home Assessment
+              <Calendar className="w-5 h-5" />
+              <span>Book Home Assessment</span>
             </button>
           </div>
         </div>

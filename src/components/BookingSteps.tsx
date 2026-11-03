@@ -22,46 +22,46 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export default function BookingSteps({ onOpenBooking }: BookingStepsProps) {
   return (
-    <section id="how-to-book" className="py-12 sm:py-16 bg-white border-b border-slate-200">
+    <section id="how-to-book" className="py-14 sm:py-20 bg-white border-b border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 text-center sm:text-left">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-1">
+        <div className="max-w-3xl mb-12 text-center sm:text-left">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
             Simple Booking
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#0a2540] tracking-tight leading-tight">
             How to Book Physiotherapy at Home
           </h2>
-          <p className="text-sm text-slate-600 mt-2">
+          <p className="text-sm sm:text-base text-slate-600 mt-2">
             A straightforward 4-step process to get professional care started at your doorstep.
           </p>
         </div>
 
-        {/* 4 Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {/* 4 Steps Grid with Cursor Highlighting */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {HOW_IT_WORKS_STEPS.map((step) => {
             const Icon = iconMap[step.iconName] || Calendar;
             return (
               <div
                 key={step.step}
-                className="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col justify-between"
+                className="bg-[#f0f7fd] rounded-2xl p-6 border border-blue-100/90 shadow-xs highlight-card flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-lg font-bold text-blue-600">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-black text-blue-600">
                       Step {step.step}
                     </span>
-                    <div className="w-8 h-8 rounded-md bg-white border border-slate-200 flex items-center justify-center text-slate-700">
-                      <Icon className="w-4 h-4 text-blue-600" />
+                    <div className="w-10 h-10 rounded-xl bg-white border border-blue-200 flex items-center justify-center text-blue-600 shadow-2xs">
+                      <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">
+                  <h3 className="text-base font-bold text-[#0a2540] mb-2">
                     {step.title}
                   </h3>
 
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -70,17 +70,18 @@ export default function BookingSteps({ onOpenBooking }: BookingStepsProps) {
           })}
         </div>
 
-        {/* Action Button & Note */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-100">
-          <span className="text-xs text-slate-500 text-center sm:text-left">
+        {/* Action Button & Note - Enlarged Button */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-blue-100">
+          <span className="text-xs sm:text-sm text-slate-600 text-center sm:text-left">
             Appointment availability is confirmed directly by our clinical coordination team.
           </span>
           <button
             type="button"
             onClick={onOpenBooking}
-            className="px-5 py-2.5 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base sm:text-lg shadow-md hover:shadow-lg transition-all hover:scale-[1.02] cursor-pointer"
           >
-            Book Home Appointment
+            <Calendar className="w-5 h-5" />
+            <span>Book Home Appointment</span>
           </button>
         </div>
 

@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, Phone, MessageSquare } from "lucide-react";
+import { ChevronDown, Phone } from "lucide-react";
 import { FAQ_ITEMS, BRAND_INFO } from "@/data/physiosphereData";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -12,49 +13,49 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-12 sm:py-16 bg-slate-50 border-b border-slate-200">
+    <section id="faq" className="py-14 sm:py-20 bg-[#f0f7fd] border-b border-blue-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-8 text-center sm:text-left">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-1">
+        <div className="mb-10 text-center sm:text-left">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
             Questions & Answers
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#0a2540] tracking-tight leading-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-sm text-slate-600 mt-2">
+          <p className="text-sm sm:text-base text-slate-600 mt-2">
             Clear information about booking, home visits, and physiotherapy care in Hyderabad.
           </p>
         </div>
 
-        {/* Accordion */}
-        <div className="space-y-2">
+        {/* Accordion with Cursor Highlighting */}
+        <div className="space-y-3">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className="bg-white rounded-lg border border-slate-200 overflow-hidden"
+                className="bg-white rounded-xl border border-blue-100/90 shadow-2xs overflow-hidden highlight-card"
               >
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
-                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-3 cursor-pointer"
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer hover:bg-blue-50/40 transition-colors"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-semibold text-slate-900 text-xs sm:text-sm leading-snug">
+                  <span className="font-bold text-[#0a2540] text-sm sm:text-base leading-snug">
                     {item.question}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-slate-500 flex-shrink-0 transition-transform ${
+                    className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform ${
                       isOpen ? "rotate-180 text-blue-600" : ""
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-4 sm:px-5 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100">
+                  <div className="px-5 pb-5 sm:px-6 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-blue-50">
                     <p className="pt-3">{item.answer}</p>
                   </div>
                 )}
@@ -63,27 +64,27 @@ export default function FAQ() {
           })}
         </div>
 
-        {/* Support Strip */}
-        <div className="mt-8 p-4 rounded-lg bg-white border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <span className="text-slate-600 text-center sm:text-left">
+        {/* Support Strip with True WhatsApp Symbol */}
+        <div className="mt-10 p-5 rounded-2xl bg-white border border-blue-100 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
+          <span className="text-slate-700 font-medium text-center sm:text-left">
             Have questions about your specific condition? Contact our clinical team:
           </span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <a
               href={`tel:${BRAND_INFO.phonePrimary}`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 font-semibold text-slate-800 hover:bg-slate-50 transition"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 font-bold text-slate-800 hover:bg-slate-50 transition shadow-2xs"
             >
-              <Phone className="w-3.5 h-3.5 text-blue-600" />
+              <Phone className="w-4 h-4 text-blue-600" />
               <span>Call {BRAND_INFO.phonePrimary}</span>
             </a>
             <a
               href={BRAND_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-emerald-300 bg-emerald-50 font-semibold text-emerald-800 hover:bg-emerald-100 transition"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-300 bg-emerald-50 font-bold text-emerald-800 hover:bg-emerald-100 transition shadow-2xs"
             >
-              <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-              <span>WhatsApp</span>
+              <WhatsAppIcon className="w-4 h-4 fill-emerald-600" />
+              <span>WhatsApp Us</span>
             </a>
           </div>
         </div>

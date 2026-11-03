@@ -9,7 +9,8 @@ import {
   Smile,
   Eye,
   HeartHandshake,
-  CheckCircle2
+  CheckCircle2,
+  Calendar
 } from "lucide-react";
 import { BENEFITS_OF_HOME_PHYSIO } from "@/data/physiosphereData";
 
@@ -30,45 +31,45 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export default function Benefits({ onOpenBooking }: BenefitsProps) {
   return (
-    <section id="benefits" className="py-12 sm:py-16 bg-slate-50 border-b border-slate-200">
+    <section id="benefits" className="py-14 sm:py-20 bg-[#f0f7fd] border-b border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 text-center sm:text-left">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-1">
+        <div className="max-w-3xl mb-12 text-center sm:text-left">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
             Why Home Care
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#0a2540] tracking-tight leading-tight">
             Benefits of Physiotherapy at Home
           </h2>
-          <p className="text-sm text-slate-600 mt-2">
+          <p className="text-sm sm:text-base text-slate-600 mt-2">
             Why hundreds of families in Hyderabad choose doorstep physiotherapy over traditional clinic visits.
           </p>
         </div>
 
-        {/* 8 Benefits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* 8 Benefits Grid with Cursor Highlighting */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {BENEFITS_OF_HOME_PHYSIO.map((benefit) => {
             const Icon = iconMap[benefit.iconName] || Home;
             return (
               <div
                 key={benefit.title}
-                className="bg-white rounded-lg p-5 border border-slate-200 flex flex-col justify-between"
+                className="bg-white rounded-xl p-5 sm:p-6 border border-blue-100/90 shadow-xs highlight-card flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-9 h-9 rounded-md bg-slate-100 flex items-center justify-center text-blue-600">
-                      <Icon className="w-4 h-4" />
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-semibold text-slate-400">
+                    <span className="text-xs font-bold text-blue-500 bg-blue-50 px-2 py-0.5 rounded">
                       {benefit.number}
                     </span>
                   </div>
 
-                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">
+                  <h3 className="text-base font-bold text-[#0a2540] mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {benefit.desc}
                   </p>
                 </div>
@@ -77,14 +78,15 @@ export default function Benefits({ onOpenBooking }: BenefitsProps) {
           })}
         </div>
 
-        {/* Concise Action Strip */}
-        <div className="mt-8 text-center sm:text-left">
+        {/* Increased Size Action Strip */}
+        <div className="mt-10 text-center sm:text-left">
           <button
             type="button"
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm transition cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base sm:text-lg shadow-md hover:shadow-lg transition-all hover:scale-[1.02] cursor-pointer"
           >
-            Book a Home Physiotherapist
+            <Calendar className="w-5 h-5" />
+            <span>Book a Home Physiotherapist</span>
           </button>
         </div>
 

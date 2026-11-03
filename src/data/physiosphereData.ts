@@ -6,6 +6,7 @@ export interface ConditionItem {
   detailedDesc: string;
   iconName: string;
   badge: string;
+  image: string;
 }
 
 export interface ServiceCategory {
@@ -52,6 +53,7 @@ export const BRAND_INFO = {
     title: "Senior Home Physiotherapist",
     experienceYears: "4+",
     patientsTreated: "600+",
+    image: "/images/sections/doctor-venu.jpg",
     bio: "Dr. Venu (B.P.T) is an experienced and dedicated physiotherapist with over 4 years of clinical and home rehabilitation expertise. Having successfully guided more than 600 patients back to pain-free movement, Dr. Venu specializes in thorough patient assessment, personalized exercise prescriptions, manual therapy, and compassionate bedside care. His patient-first philosophy focuses on restoring confidence, daily functional independence, and preventing long-term recurrence."
   }
 };
@@ -64,7 +66,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Targeted mobilization, spinal stability exercises, and ergonomics to relieve acute and chronic back discomfort.",
     detailedDesc: "Comprehensive home rehabilitation for lower, mid, and upper back stiffness, muscle spasms, and postural strain.",
     iconName: "Activity",
-    badge: "Common Condition"
+    badge: "Common Condition",
+    image: "/images/conditions/back-pain.jpg"
   },
   {
     id: "neck-pain-cervical",
@@ -73,7 +76,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Gentle cervical traction, isometric strengthening, and manual therapy to ease stiffness and radiating pain.",
     detailedDesc: "Specialized care designed to restore neck mobility, reduce nerve compression sensations, and correct tech-neck posture.",
     iconName: "ShieldAlert",
-    badge: "Specialized Care"
+    badge: "Specialized Care",
+    image: "/images/conditions/neck-pain-cervical.jpg"
   },
   {
     id: "knee-pain",
@@ -82,7 +86,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Strengthening quadriceps, hamstrings, and knee stabilizers to enhance joint support and pain-free walking.",
     detailedDesc: "Evidence-based therapy targeting ligament strains, meniscus discomfort, patellofemoral pain, and functional mobility.",
     iconName: "HeartPulse",
-    badge: "Mobility Focus"
+    badge: "Mobility Focus",
+    image: "/images/conditions/knee-pain.jpg"
   },
   {
     id: "frozen-shoulder",
@@ -91,7 +96,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Gradual capsular stretching, scapular stabilization, and joint mobilizations to restore full shoulder reach.",
     detailedDesc: "Structured multi-phase rehabilitation tailored to freezing, frozen, or thawing stages for pain relief and range of motion.",
     iconName: "RotateCcw",
-    badge: "Recovery Protocol"
+    badge: "Recovery Protocol",
+    image: "/images/conditions/frozen-shoulder.jpg"
   },
   {
     id: "slip-disc-herniated",
@@ -100,7 +106,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "McKenzie extensions, nerve flossing, and deep core conditioning to reduce disc pressure safely.",
     detailedDesc: "Carefully calibrated non-invasive home interventions to decompress lumbar and cervical nerves and restore daily functions.",
     iconName: "Layers",
-    badge: "Spine Care"
+    badge: "Spine Care",
+    image: "/images/conditions/slip-disc-herniated.jpg"
   },
   {
     id: "sciatica",
@@ -109,7 +116,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Decompress sciatic nerve pathways, piriformis release, and specialized mobility drills for lasting nerve relief.",
     detailedDesc: "Targeted relief from radiating tingling, numbness, and shooting leg sensations through progressive at-home protocols.",
     iconName: "Zap",
-    badge: "Nerve Relief"
+    badge: "Nerve Relief",
+    image: "/images/conditions/sciatica.jpg"
   },
   {
     id: "arthritis-joint-pain",
@@ -118,7 +126,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Low-impact range of motion, hydro-mimicking home routines, and joint offloading strategies.",
     detailedDesc: "Tailored regimens for osteoarthritis and rheumatoid joint stiffness to maintain independence and ease day-to-day movement.",
     iconName: "Sparkles",
-    badge: "Joint Health"
+    badge: "Joint Health",
+    image: "/images/conditions/arthritis-joint-pain.jpg"
   },
   {
     id: "sports-injuries",
@@ -127,7 +136,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Acute sprain/strain care, muscle rebuilding, biomechanics correction, and safe return-to-sport protocols.",
     detailedDesc: "Personalized recovery for active individuals and athletes recovering from ligament tears, tendinitis, and muscle pulls.",
     iconName: "Trophy",
-    badge: "Active Rehab"
+    badge: "Active Rehab",
+    image: "/images/conditions/sports-injuries.jpg"
   },
   {
     id: "post-surgery-rehab",
@@ -136,7 +146,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Safe bedside mobility, swelling management, scar tissue mobilization, and progressive weight-bearing exercises.",
     detailedDesc: "Structured home rehab for total knee replacement (TKR), total hip replacement (THR), spine surgeries, and arthroscopies.",
     iconName: "Stethoscope",
-    badge: "Post-Surgical"
+    badge: "Post-Surgical",
+    image: "/images/conditions/post-surgery-rehab.jpg"
   },
   {
     id: "stroke-rehab",
@@ -145,7 +156,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Neuro-developmental techniques, motor relearning, hemiplegic side activation, and functional retraining.",
     detailedDesc: "Patient-centered neuro-rehab delivered in familiar home surroundings to foster neural plasticity, balance, and independence.",
     iconName: "BrainCircuit",
-    badge: "Neuro Care"
+    badge: "Neuro Care",
+    image: "/images/conditions/stroke-rehab.jpg"
   },
   {
     id: "neurological-conditions",
@@ -154,7 +166,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Therapy for Parkinson's disease, neuropathy, and balance impairments to optimize functional coordination.",
     detailedDesc: "Adaptive movement strategies, gait refinement, and endurance protocols to support independence in daily living.",
     iconName: "Activity",
-    badge: "Neuro Care"
+    badge: "Neuro Care",
+    image: "/images/conditions/neurological-conditions.jpg"
   },
   {
     id: "post-fracture-rehab",
@@ -163,7 +176,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Overcoming cast stiffness, rebuilding lost muscle mass, and safe joint re-conditioning after bone healing.",
     detailedDesc: "Guided progressive loading protocols following cast removal or orthopedic hardware fixation to restore normal limb use.",
     iconName: "Bone",
-    badge: "Bone Recovery"
+    badge: "Bone Recovery",
+    image: "/images/conditions/post-fracture-rehab.jpg"
   },
   {
     id: "elderly-physiotherapy",
@@ -172,7 +186,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Gentle senior-specific mobility, balance preservation, fall prevention, and endurance support in the comfort of home.",
     detailedDesc: "Compassionate bedside and home-based care tailored to senior citizens, eliminating stressful travel and clinic waiting times.",
     iconName: "Users",
-    badge: "Senior Care"
+    badge: "Senior Care",
+    image: "/images/conditions/elderly-physiotherapy.jpg"
   },
   {
     id: "posture-correction",
@@ -181,7 +196,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Rebalancing slouched shoulders, forward head tilt, and postural muscle fatigue with tailored corrective drills.",
     detailedDesc: "Ideal for desk workers and remote professionals across Hyderabad experiencing muscle strain from prolonged sitting.",
     iconName: "Compass",
-    badge: "Ergonomics"
+    badge: "Ergonomics",
+    image: "/images/conditions/posture-correction.jpg"
   },
   {
     id: "balance-gait-training",
@@ -190,7 +206,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Proprioception exercises, walking posture correction, and steady footing drills to minimize fall hazards.",
     detailedDesc: "Comprehensive balance assessments and progressive obstacle-safe home walking practice for unsteadiness.",
     iconName: "Footprints",
-    badge: "Fall Prevention"
+    badge: "Fall Prevention",
+    image: "/images/conditions/balance-gait-training.jpg"
   },
   {
     id: "muscle-weakness-mobility",
@@ -199,7 +216,8 @@ export const CONDITIONS_TREATED: ConditionItem[] = [
     shortDesc: "Graduated resistance exercises, functional transfer training, and vitality building for bedridden or weakened individuals.",
     detailedDesc: "Empowering patients to transition smoothly from bed to chair, stand securely, and walk comfortably within their homes.",
     iconName: "Dumbbell",
-    badge: "Strength & Movement"
+    badge: "Strength & Movement",
+    image: "/images/conditions/muscle-weakness-mobility.jpg"
   }
 ];
 

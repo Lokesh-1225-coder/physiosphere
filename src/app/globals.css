@@ -2,18 +2,22 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
+  --foreground: #1e293b;
   --brand-blue: #0284c7;
-  --brand-navy: #0f2b48;
+  --brand-navy: #0a2540;
+  --brand-deep-navy: #0a2540;
   --brand-teal: #0d9488;
   --brand-emerald: #059669;
+  --healthcare-light: #f0f7fd;
 }
 
 @theme inline {
   --color-brand-blue: #0284c7;
-  --color-brand-navy: #0f2b48;
+  --color-brand-navy: #0a2540;
+  --color-deep-navy: #0a2540;
   --color-brand-teal: #0d9488;
   --color-brand-emerald: #059669;
+  --color-healthcare-light: #f0f7fd;
 }
 
 html {
@@ -30,19 +34,40 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Deep Navy Blue for all Headings - Healthcare Clinical Standard */
+h1, h2, h3, h4, h5, h6 {
+  color: #0a2540;
+}
+
+/* Interactive Card & Section Active Cursor Highlighting */
+.highlight-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlight-card:hover {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 10px 25px -3px rgba(2, 132, 199, 0.12), 0 4px 6px -4px rgba(2, 132, 199, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Active Section Glow */
+section:hover {
+  transition: background-color 0.3s ease;
+}
+
 /* Subtle clean scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: #f0f7fd;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #93c5fd;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #60a5fa;
 }
 
 /* Accessibility focus styles */
