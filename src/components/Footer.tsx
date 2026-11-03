@@ -23,22 +23,22 @@ export default function Footer({ onOpenBooking }: FooterProps) {
           {/* Col 1 & 2: Brand */}
           <div className="lg:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-blue-400/30 flex-shrink-0">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-blue-400/40 flex-shrink-0 shadow-md">
                 <Image
                   src="/images/logo.jpeg"
                   alt="PhysioSphere Logo"
                   fill
-                  sizes="40px"
+                  sizes="48px"
                   className="object-cover"
                 />
               </div>
-              <span className="text-xl font-black text-white tracking-tight">
+              <span className="text-2xl font-black text-white tracking-tight">
                 Physio<span className="text-emerald-400">Sphere</span>
               </span>
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              Doorstep home physiotherapy across Hyderabad. Team of 8 licensed physiotherapists delivering personalized rehabilitation for pain relief, surgery recovery, and elderly mobility.
+              Doorstep home physiotherapy across Hyderabad. Team of 30+ licensed physiotherapists delivering personalized rehabilitation for pain relief, surgery recovery, and elderly mobility.
             </p>
 
             <div className="space-y-1.5 text-xs text-slate-300 pt-1">
@@ -59,6 +59,10 @@ export default function Footer({ onOpenBooking }: FooterProps) {
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
                 <span>Hyderabad, Telangana, India</span>
+              </div>
+              <div className="pt-1 text-[11px] font-semibold text-emerald-400 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span>Opening Hours: Mon-Sun: 9:00am - 9:00pm</span>
               </div>
             </div>
           </div>

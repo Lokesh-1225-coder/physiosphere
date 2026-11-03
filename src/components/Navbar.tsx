@@ -65,15 +65,17 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   return (
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-2xs">
       {/* Top Clinical Strip - Desktop Only */}
-      <div className="hidden lg:block bg-[#0a2540] text-slate-200 text-xs py-1.5 px-6">
+      <div className="hidden lg:block bg-[#0a2540] text-slate-200 text-xs py-2 px-6 border-b border-blue-900/50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="text-white font-medium">Home Physiotherapy Across Hyderabad</span>
             <span className="text-blue-300/40">|</span>
             <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              Team of 8 Licensed Physiotherapists
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              Team of 30+ Licensed Physiotherapists
             </span>
+            <span className="text-blue-300/40">|</span>
+            <span className="text-blue-200">Hours: Mon-Sun: 9:00am - 9:00pm</span>
           </div>
           <div className="flex items-center gap-5">
             <a
@@ -87,7 +89,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               href={BRAND_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1 font-semibold"
+              className="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1.5 font-semibold"
             >
               <WhatsAppIcon className="w-3.5 h-3.5 fill-emerald-400" />
               <span>WhatsApp</span>
@@ -96,49 +98,49 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         </div>
       </div>
 
-      {/* Main Navbar: Responsive height (14 on mobile, 18 on desktop) */}
+      {/* Main Navbar: Responsive height (15 on mobile, 18-20 on desktop) */}
       <nav
         aria-label="Main Navigation"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 sm:h-18 flex items-center justify-between"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"
       >
-        {/* Brand Logo & Name */}
+        {/* Brand Logo & Name (Slightly larger logo per instructions) */}
         <Link
           href="#hero"
-          className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0"
+          className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 group"
           onClick={handleLinkClick}
         >
-          <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-blue-200 shadow-2xs flex-shrink-0">
+          <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden border-2 border-blue-200 shadow-2xs flex-shrink-0 group-hover:border-blue-400 transition-colors">
             <Image
               src="/images/logo.jpeg"
               alt="PhysioSphere Logo"
               fill
-              sizes="44px"
+              sizes="52px"
               className="object-cover"
               priority
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-lg sm:text-xl font-bold tracking-tight text-[#0a2540] leading-tight">
+            <span className="text-xl sm:text-2xl font-black tracking-tight text-[#0a2540] leading-tight">
               Physio<span className="text-emerald-600">Sphere</span>
             </span>
-            <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-none">
+            <span className="text-[11px] sm:text-xs font-semibold text-slate-500 leading-none">
               Home Physiotherapy • Hyderabad
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation Links (15-16px font) */}
-        <div className="hidden xl:flex items-center gap-1 text-[15px] font-semibold text-slate-700">
+        {/* Desktop Navigation Links (15-16px font with active & hover cursor highlight) */}
+        <div className="hidden xl:flex items-center gap-1.5 text-[15px] sm:text-[16px] font-semibold text-slate-700">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-2 rounded-lg transition cursor-pointer ${
+                className={`px-3 py-2 rounded-xl transition-all cursor-pointer ${
                   isActive
-                    ? "bg-blue-50 text-blue-700 font-bold border border-blue-200/70"
-                    : "hover:bg-blue-50/70 hover:text-blue-700 text-slate-700"
+                    ? "bg-[#0a2540] text-white font-bold shadow-2xs"
+                    : "hover:bg-blue-100/70 hover:text-[#0a2540] text-slate-700"
                 }`}
               >
                 {link.name}
@@ -147,7 +149,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           })}
         </div>
 
-        {/* Desktop Action CTAs */}
+        {/* Desktop Action CTAs (Enlarged Appointment Booking Button) */}
         <div className="hidden lg:flex items-center gap-3">
           <a
             href={`tel:${BRAND_INFO.phonePrimary}`}
@@ -160,10 +162,10 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           <button
             type="button"
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold shadow-sm hover:shadow-md transition active:scale-[0.98] cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-[15px] font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer"
           >
-            <Calendar className="w-4 h-4" />
-            <span>Book Now</span>
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span>Book Appointment</span>
           </button>
         </div>
 

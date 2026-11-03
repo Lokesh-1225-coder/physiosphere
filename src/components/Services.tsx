@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Activity,
   BrainCircuit,
@@ -108,25 +109,45 @@ export default function Services({ onSelectService }: ServicesProps) {
           {/* Right Column: Active Discipline Scope */}
           <div className="lg:col-span-7 p-4 sm:p-7 flex flex-col justify-between space-y-4 sm:space-y-6">
             <div>
-              <div className="flex items-center gap-3 mb-2.5">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
-                  <ActiveIcon className="w-5 h-5" />
+              {/* Discipline Header & Realistic Clinical Photograph */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 mb-4 items-center">
+                <div className="sm:col-span-7 space-y-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+                      <ActiveIcon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-base sm:text-xl font-bold text-[#0a2540]">
+                        {active.title}
+                      </h3>
+                      <span className="text-[11px] font-semibold text-slate-500">
+                        Doorstep Sessions Across Hyderabad
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {active.detailedDesc}
+                  </p>
                 </div>
-                <div>
-                  <h3 className="text-base sm:text-xl font-bold text-[#0a2540]">
-                    {active.title}
-                  </h3>
-                  <span className="text-[11px] font-semibold text-slate-500">
-                    Doorstep Sessions Across Hyderabad
-                  </span>
-                </div>
+
+                {active.image && (
+                  <div className="sm:col-span-5 relative aspect-[380/250] rounded-xl overflow-hidden border border-slate-200/90 shadow-2xs bg-slate-50">
+                    <Image
+                      src={active.image}
+                      alt={active.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 260px"
+                      className="object-cover"
+                    />
+                    <span className="absolute bottom-1.5 right-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded bg-white/90 text-slate-800 shadow-2xs">
+                      Clinical Care
+                    </span>
+                  </div>
+                )}
               </div>
 
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                {active.detailedDesc}
-              </p>
-
-              <div className="space-y-2">
+              <div className="space-y-2 pt-2 border-t border-slate-100">
                 <div className="text-xs font-bold text-[#0a2540] uppercase tracking-wider">
                   Scope of Care Includes:
                 </div>

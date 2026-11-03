@@ -88,7 +88,7 @@ export default function Contact({ onOpenBooking }: ContactProps) {
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-white/20 text-xs sm:text-sm font-bold text-emerald-400 flex items-center justify-between">
-              <span>Open Booking Form</span>
+              <span>Book Appointment</span>
               <ArrowRight className="w-4 h-4" />
             </div>
           </button>
@@ -129,10 +129,11 @@ export default function Contact({ onOpenBooking }: ContactProps) {
 
           <div className="col-span-2 sm:col-span-1">
             <div className="font-bold text-[#0a2540] flex items-center gap-1.5 mb-1">
-              <MapPin className="w-3.5 h-3.5 text-blue-600" /> City
+              <MapPin className="w-3.5 h-3.5 text-blue-600" /> City & Hours
             </div>
             <div className="text-slate-700 font-medium">
-              Hyderabad, Telangana, India
+              <div>Hyderabad, Telangana</div>
+              <div className="text-[11px] text-emerald-700 font-bold mt-0.5">Mon-Sun: 9:00am - 9:00pm</div>
             </div>
           </div>
         </div>

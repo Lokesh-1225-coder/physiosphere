@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   ClipboardCheck,
   FileText,
@@ -73,31 +74,46 @@ export default function HomePhysiotherapy({ onOpenBooking }: HomePhysiotherapyPr
           })}
         </div>
 
-        {/* Minimal High-Value Patients Box */}
-        <div className="bg-[#f0f7fd] border border-blue-200/80 rounded-xl p-4 sm:p-6 shadow-2xs">
-          <div className="mb-4">
-            <h3 className="text-base sm:text-lg font-bold text-[#0a2540]">
-              Ideal for Seniors, Post-Operative Patients & Limited Mobility
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1">
-              Avoid traffic, difficult car transfers, and clinical waiting rooms. We bring all essential equipment to your home.
-            </p>
+        {/* Realistic Home Visit Feature Box */}
+        <div className="bg-[#f0f7fd] border border-blue-200/80 rounded-2xl p-4 sm:p-6 shadow-2xs overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center mb-4">
+            <div className="lg:col-span-8">
+              <h3 className="text-base sm:text-lg font-bold text-[#0a2540]">
+                Ideal for Seniors, Post-Operative Patients & Limited Mobility
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                Avoid traffic, difficult car transfers, and clinical waiting rooms. We bring all essential equipment to your home for safe bedside recovery.
+              </p>
+            </div>
+            <div className="lg:col-span-4 relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-[16/10] rounded-xl overflow-hidden border border-slate-200 shadow-2xs">
+              <Image
+                src="/images/sections/home-care.jpg"
+                alt="Physiotherapy treatment session in home setting"
+                fill
+                sizes="(max-width: 1024px) 100vw, 320px"
+                className="object-cover"
+                loading="lazy"
+              />
+              <span className="absolute bottom-1.5 left-1.5 text-[9px] font-bold px-2 py-0.5 rounded bg-white/95 text-[#0a2540] shadow-2xs">
+                In-Home Rehabilitation
+              </span>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="bg-white p-3.5 rounded-lg border border-blue-100">
+            <div className="bg-white p-3.5 rounded-lg border border-blue-100 highlight-card">
               <Heart className="w-4 h-4 text-rose-600 mb-1.5" />
               <h4 className="text-xs sm:text-sm font-bold text-[#0a2540]">Elderly Mobility</h4>
               <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">Gentle balance and walking therapy to prevent falls.</p>
             </div>
 
-            <div className="bg-white p-3.5 rounded-lg border border-blue-100">
+            <div className="bg-white p-3.5 rounded-lg border border-blue-100 highlight-card">
               <Stethoscope className="w-4 h-4 text-blue-600 mb-1.5" />
               <h4 className="text-xs sm:text-sm font-bold text-[#0a2540]">Post-Surgery Rehab</h4>
               <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">Safe bedside exercise after knee, hip, or spine surgery.</p>
             </div>
 
-            <div className="bg-white p-3.5 rounded-lg border border-blue-100">
+            <div className="bg-white p-3.5 rounded-lg border border-blue-100 highlight-card">
               <Accessibility className="w-4 h-4 text-emerald-600 mb-1.5" />
               <h4 className="text-xs sm:text-sm font-bold text-[#0a2540]">Movement Recovery</h4>
               <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">Bed-to-chair transfers and secure indoor walking drills.</p>

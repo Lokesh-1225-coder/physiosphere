@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://physiosphere.in"),
   title: "PhysioSphere | Expert Physiotherapy Care at Home in Hyderabad",
   description:
-    "Recover comfortably at home with PhysioSphere. Certified team of 8 physiotherapists delivering personalized doorstep physiotherapy across Hyderabad. Back pain, stroke rehab, post-surgery, knee pain, and elderly mobility.",
+    "Recover comfortably at home with PhysioSphere. Certified team of 30+ physiotherapists delivering personalized doorstep physiotherapy across Hyderabad. Back pain, stroke rehab, post-surgery, knee pain, and elderly mobility.",
   keywords: [
     "Physiotherapy at Home in Hyderabad",
     "Home Physiotherapist in Hyderabad",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PhysioSphere | Expert Physiotherapy Care at Home in Hyderabad",
     description:
-      "Doorstep physiotherapy care across Hyderabad. Certified team of 8 physiotherapists offering specialized orthopedic, neurological, post-surgery, and geriatric rehabilitation.",
+      "Doorstep physiotherapy care across Hyderabad. Certified team of 30+ physiotherapists offering specialized orthopedic, neurological, post-surgery, and geriatric rehabilitation.",
     url: "https://physiosphere.in",
     siteName: "PhysioSphere",
     images: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "PhysioSphere | Expert Physiotherapy at Home in Hyderabad",
     description:
-      "Doorstep physiotherapy care across Hyderabad. Experienced team of 8 physiotherapists offering personalized rehabilitation at your home.",
+      "Doorstep physiotherapy care across Hyderabad. Experienced team of 30+ physiotherapists offering personalized rehabilitation at your home.",
     images: ["/images/logo.jpeg"]
   },
   robots: {
@@ -77,7 +77,7 @@ export default function RootLayout({
     name: "PhysioSphere",
     alternateName: "PhysioSphere Advanced Physiotherapy",
     description:
-      "Professional home physiotherapy service provider across Hyderabad with a verified team of 8 licensed physiotherapists.",
+      "Professional home physiotherapy service provider across Hyderabad with a verified team of 30+ licensed physiotherapists.",
     url: "https://physiosphere.in",
     logo: "https://physiosphere.in/images/logo.jpeg",
     telephone: "+917675069960",
@@ -101,7 +101,7 @@ export default function RootLayout({
       name: "Dr. Venu",
       jobTitle: "Senior Physiotherapist",
       honorificPrefix: "Dr.",
-      hasCredential: "B.P.T",
+      hasCredential: "PT",
       description: "Physiotherapist with 4+ years of clinical and home rehabilitation experience, successfully treated over 600 patients."
     },
     serviceArea: {

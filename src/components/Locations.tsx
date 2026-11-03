@@ -46,7 +46,7 @@ export default function Locations({ onOpenBooking }: LocationsProps) {
             Service Locations in Hyderabad
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-1">
-            Our team of 8 physiotherapists provides doorstep physiotherapy across 80+ localities in Hyderabad.
+            Our team of 30+ physiotherapists provides doorstep physiotherapy across 80+ localities in Hyderabad.
           </p>
         </div>
 

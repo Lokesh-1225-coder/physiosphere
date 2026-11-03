@@ -109,23 +109,19 @@ export default function Conditions({ onSelectCondition }: ConditionsProps) {
                 className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-2xs highlight-card flex flex-col justify-between"
               >
                 <div>
-                  {/* Compact, Consistent Image Ratio */}
-                  <div className="relative h-36 w-full overflow-hidden bg-slate-100">
+                  {/* Realistic Condition Photograph with Natural Aspect Ratio */}
+                  <div className="relative aspect-[380/250] w-full overflow-hidden bg-slate-50 border-b border-slate-100">
                     <Image
                       src={item.image}
                       alt={item.name}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
-                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+                      className="object-cover group-hover:scale-102 transition-transform duration-300"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/70 via-transparent to-transparent" />
-                    <span className="absolute top-2.5 left-2.5 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/95 text-[#0a2540] shadow-2xs">
+                    <span className="absolute top-2.5 left-2.5 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-white/95 text-[#0a2540] shadow-2xs border border-slate-200/60">
                       {item.category}
                     </span>
-                    <div className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xs">
-                      <Icon className="w-3.5 h-3.5" />
-                    </div>
                   </div>
 
                   {/* Compact Text Content */}

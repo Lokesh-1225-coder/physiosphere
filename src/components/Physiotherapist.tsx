@@ -87,7 +87,7 @@ export default function Physiotherapist({ onOpenBooking }: PhysiotherapistProps)
               <Users className="w-3.5 h-3.5" /> Zonal Coordination
             </span>
             <h3 className="text-base sm:text-lg font-bold text-[#0a2540]">
-              Team of 8 Physiotherapists Across Hyderabad
+              Team of 30+ Physiotherapists Across Hyderabad
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-1">
               Coordinated specialists assigned based on your neighborhood for prompt doorstep visits.

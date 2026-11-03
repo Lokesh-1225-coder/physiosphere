@@ -36,24 +36,24 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               <span>Doorstep Physiotherapy in Hyderabad</span>
             </div>
 
-            {/* Responsive Heading: 30-34px on mobile, 48-50px on desktop */}
-            <h1 className="text-[30px] sm:text-4xl lg:text-[48px] font-black text-[#0a2540] tracking-tight leading-[1.15]">
+            {/* Responsive Heading: 32px on mobile, 48-50px on desktop */}
+            <h1 className="text-[32px] sm:text-4xl lg:text-[50px] font-black text-[#0a2540] tracking-tight leading-[1.12]">
               Expert Physiotherapy Care, Right at Your Home
             </h1>
 
             {/* Short Minimal Description */}
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
-              Certified team of 8 physiotherapists delivering personalized rehabilitation across Hyderabad. Zero travel, safe bedside recovery.
+              Certified team of 30+ physiotherapists delivering personalized rehabilitation across Hyderabad. Zero travel, safe bedside recovery.
             </p>
 
-            {/* CTAs: Book Now as Primary, WhatsApp and Call as Secondary */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
+            {/* CTAs: Book Now as Primary (Enlarged), WhatsApp and Call as Secondary */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 pt-1">
               <button
                 type="button"
                 onClick={onOpenBooking}
-                className="min-h-[48px] inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow transition active:scale-[0.99] cursor-pointer"
+                className="min-h-[52px] inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-base sm:text-lg shadow-md hover:shadow-lg transition-all active:scale-[0.99] cursor-pointer"
               >
-                <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Calendar className="w-5 h-5" />
                 <span>Book Appointment</span>
               </button>
 
@@ -62,7 +62,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   href={BRAND_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="min-h-[48px] inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-800 font-bold text-xs sm:text-sm hover:bg-emerald-100 active:bg-emerald-200 transition"
+                  className="min-h-[52px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-800 font-bold text-xs sm:text-sm hover:bg-emerald-100 active:bg-emerald-200 transition shadow-2xs"
                 >
                   <WhatsAppIcon className="w-4 h-4 fill-emerald-600" />
                   <span>WhatsApp</span>
@@ -70,7 +70,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
                 <a
                   href={`tel:${BRAND_INFO.phonePrimary}`}
-                  className="min-h-[48px] inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 font-bold text-xs sm:text-sm hover:bg-slate-50 active:bg-slate-100 transition"
+                  className="min-h-[52px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 font-bold text-xs sm:text-sm hover:bg-slate-50 active:bg-slate-100 transition shadow-2xs"
                 >
                   <Phone className="w-4 h-4 text-blue-600" />
                   <span>Call Now</span>
@@ -81,17 +81,17 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             {/* Compact Trust Stats */}
             <div className="pt-3 border-t border-blue-100/80">
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-blue-100 text-left">
-                  <div className="text-sm sm:text-base font-bold text-[#0a2540] leading-tight">Team of 8</div>
-                  <div className="text-[11px] text-slate-500">Therapists</div>
+                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-blue-100 text-left highlight-card">
+                  <div className="text-base sm:text-lg font-bold text-[#0a2540] leading-tight">Team of 30+</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Physiotherapists</div>
                 </div>
-                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-blue-100 text-left">
-                  <div className="text-sm sm:text-base font-bold text-[#0a2540] leading-tight">4+ Years</div>
-                  <div className="text-[11px] text-slate-500">Clinical Exp.</div>
+                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-blue-100 text-left highlight-card">
+                  <div className="text-base sm:text-lg font-bold text-[#0a2540] leading-tight">4+ Years</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Clinical Exp.</div>
                 </div>
-                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-blue-100 text-left">
-                  <div className="text-sm sm:text-base font-bold text-[#0a2540] leading-tight">600+</div>
-                  <div className="text-[11px] text-slate-500">Treated</div>
+                <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-blue-100 text-left highlight-card">
+                  <div className="text-base sm:text-lg font-bold text-[#0a2540] leading-tight">600+</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Patients Treated</div>
                 </div>
               </div>
             </div>

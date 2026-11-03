@@ -18,10 +18,10 @@ interface WhyChooseUsProps {
 
 export default function WhyChooseUs({ onOpenBooking }: WhyChooseUsProps) {
   const points = [
-    { title: "Team of 8 Physiotherapists", desc: "Zonal coverage for fast doorstep appointment scheduling.", icon: Users },
+    { title: "Team of 30+ Physiotherapists", desc: "Zonal coverage for fast doorstep appointment scheduling.", icon: Users },
     { title: "Home Physiotherapy Across Hyderabad", desc: "Full rehabilitation in your living room, avoiding travel fatigue.", icon: MapPin },
     { title: "Personalized Treatment Plans", desc: "Therapy customized around your medical diagnosis and daily routine.", icon: ClipboardList },
-    { title: "Experienced Professionals", desc: "Led by Dr. Venu (4+ years, 600+ patients treated) with proven results.", icon: Award },
+    { title: "Experienced Professionals", desc: "Led by Dr. Venu (PT) (4+ years, 600+ patients treated) with proven results.", icon: Award },
     { title: "Convenient Booking", desc: "Instant booking via website, WhatsApp, or direct call.", icon: CalendarCheck },
     { title: "Patient-Centred Care", desc: "Gentle bedside approach tailored to your comfort and tolerance.", icon: Heart },
     { title: "Continuous Guidance", desc: "Clear home exercise programs and caregiver positioning guidance.", icon: Headphones }
@@ -67,7 +67,7 @@ export default function WhyChooseUs({ onOpenBooking }: WhyChooseUsProps) {
               </div>
               <div className="flex items-center justify-between py-1 border-b border-slate-50">
                 <span className="text-slate-500 font-medium">Active Team:</span>
-                <span className="font-bold text-[#0a2540]">8 Physiotherapists</span>
+                <span className="font-bold text-[#0a2540]">30+ Physiotherapists</span>
               </div>
               <div className="flex items-center justify-between py-1">
                 <span className="text-slate-500 font-medium">Coordination:</span>

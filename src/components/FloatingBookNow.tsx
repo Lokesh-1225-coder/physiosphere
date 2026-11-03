@@ -53,9 +53,9 @@ export default function FloatingBookNow({ onOpenBooking }: FloatingBookNowProps)
         <button
           type="button"
           onClick={onOpenBooking}
-          className="flex-[2] min-h-[44px] flex items-center justify-center gap-1.5 px-3 rounded-xl bg-blue-600 active:bg-blue-700 text-white font-bold text-xs sm:text-sm cursor-pointer shadow-sm"
+          className="flex-[2] min-h-[46px] flex items-center justify-center gap-2 px-4 rounded-xl bg-blue-600 active:bg-blue-700 text-white font-bold text-sm cursor-pointer shadow-md active:scale-[0.98] transition-all"
         >
-          <Calendar className="w-4 h-4" />
+          <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
           <span>Book Now</span>
         </button>
       </nav>

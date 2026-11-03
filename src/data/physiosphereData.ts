@@ -16,6 +16,7 @@ export interface ServiceCategory {
   detailedDesc: string;
   benefits: string[];
   iconName: string;
+  image?: string;
 }
 
 export interface TestimonialItem {
@@ -46,14 +47,23 @@ export const BRAND_INFO = {
   whatsappUrl: "https://wa.me/917675069960?text=Hello%20PhysioSphere%2C%20I%20am%20interested%20in%20booking%20a%20home%20physiotherapy%20appointment.%20Please%20share%20the%20details.",
   emailPrimary: "info.physiosphere.in@gmail.com",
   emailDoctor: "dr.venu882@gmail.com",
-  teamCount: 8,
+  teamCount: 30,
+  openingHours: "Mon-Sun: 9:00am - 9:00pm",
+  clinic: {
+    name: "Legend Physiotherapy Ortho and Neuro Pain Management Clinic",
+    address: "Shop No.2 Ground Floor, Road No: 4 HNO: 11-13-714 Dwarka Nagar Green Hills Colony, Kothapet, Dwarka Nagar, L. B. Nagar, Hyderabad, Telangana 500102, India",
+    rating: 5.0,
+    reviewsCount: 493,
+    hours: "Mon-Sun: 9:00am - 9:00pm",
+    mapsUrl: "https://maps.google.com/?q=Legend+Physiotherapy+Ortho+and+Neuro+Pain+Management+Clinic+Kothapet+Hyderabad"
+  },
   doctorVenu: {
     name: "Dr. Venu",
-    qualification: "B.P.T",
-    title: "Senior Home Physiotherapist",
+    qualification: "PT",
+    title: "Senior Home Physiotherapist (PT)",
     experienceYears: "4+",
     patientsTreated: "600+",
-    bio: "Dr. Venu (B.P.T) is an experienced physiotherapist with 4+ years of clinical and home rehabilitation expertise, having treated over 600 patients across Hyderabad with personalized manual therapy and exercise protocols."
+    bio: "Dr. Venu (PT) is an experienced physiotherapist with 4+ years of clinical and home rehabilitation expertise, having treated over 600 patients across Hyderabad with personalized manual therapy and exercise protocols."
   }
 };
 
@@ -227,7 +237,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     shortDesc: "Comprehensive rehabilitation for bone, joint, ligament, and tendon disorders delivered at home.",
     detailedDesc: "From chronic back and neck discomfort to knee osteoarthritis and shoulder stiffness, our physiotherapists use manual therapy, mobilization, and strengthening routines to reduce pain and restore full functional movement.",
     benefits: ["Manual joint mobilization", "Strengthening weakened stabilizer muscles", "Ergonomic & postural retraining", "Targeted pain-relief techniques"],
-    iconName: "Activity"
+    iconName: "Activity",
+    image: "/images/conditions/knee-pain.jpg"
   },
   {
     id: "neurological",
@@ -235,7 +246,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     shortDesc: "Specialized neuro-rehabilitation helping stroke, Parkinson's, and neuropathy patients regain independence.",
     detailedDesc: "Our home sessions leverage neuroplasticity principles, motor retraining, and functional task drills in the patient's comfortable environment, avoiding stressful clinic commutes.",
     benefits: ["Neuro-developmental therapy", "Gait & balance coordination", "Upper limb functional retraining", "Caregiver positioning education"],
-    iconName: "BrainCircuit"
+    iconName: "BrainCircuit",
+    image: "/images/conditions/stroke-rehab.jpg"
   },
   {
     id: "sports",
@@ -243,7 +255,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     shortDesc: "Advanced injury management, biomechanical corrections, and safe athletic return for sports enthusiasts.",
     detailedDesc: "Whether suffering from runner's knee, ankle sprains, rotator cuff strains, or tennis elbow, we design tailored home conditioning programs to accelerate recovery and prevent re-injury.",
     benefits: ["Targeted muscle re-education", "Kinetic chain assessment", "Functional agility drills", "Safe return-to-sport roadmap"],
-    iconName: "Trophy"
+    iconName: "Trophy",
+    image: "/images/conditions/sports-injuries.jpg"
   },
   {
     id: "post-operative",
@@ -251,7 +264,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     shortDesc: "Critical bedside care following knee/hip replacements, spinal surgeries, and fracture fixations.",
     detailedDesc: "Commencing immediately after hospital discharge, our therapists assist with safe ambulation, swelling reduction, gentle joint range recovery, and progressive resistance training.",
     benefits: ["Deep vein thrombosis (DVT) prevention exercises", "Surgical site protection & safe transfers", "Progressive weight-bearing assistance", "Daily recovery milestones"],
-    iconName: "ShieldAlert"
+    iconName: "ShieldAlert",
+    image: "/images/conditions/post-surgery-rehab.jpg"
   },
   {
     id: "geriatric",
@@ -259,7 +273,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     shortDesc: "Gentle, respectful physical therapy designed to keep senior citizens active, mobile, and safe from falls.",
     detailedDesc: "We assess home hazards, strengthen core and leg muscles, practice safe stair climbing, and enhance confidence so seniors can enjoy dignified independence in their familiar surroundings.",
     benefits: ["Fall-risk reduction strategies", "Gentle arthritis management", "Bed mobility & chair transfer training", "Compassionate, patient pacing"],
-    iconName: "HeartPulse"
+    iconName: "HeartPulse",
+    image: "/images/conditions/elderly-physiotherapy.jpg"
   },
   {
     id: "pediatric",
@@ -267,7 +282,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     shortDesc: "Gentle developmental support and posture guidance for children and adolescents at home.",
     detailedDesc: "Focused on motor development, postural coordination, sports-related growing pains, and pediatric orthopaedic rehabilitation in a welcoming, stress-free family atmosphere.",
     benefits: ["Developmental milestone encouragement", "Play-based therapeutic movements", "Postural alignment exercises", "Parent guidance & home drills"],
-    iconName: "Sparkles"
+    iconName: "Sparkles",
+    image: "/images/conditions/neurological-conditions.jpg"
   },
   {
     id: "pain-management",
@@ -275,7 +291,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     shortDesc: "Non-invasive, drug-free modalities and physical techniques to overcome persistent pain.",
     detailedDesc: "Combining trigger point therapy, therapeutic stretches, neuromuscular release, and heat/cold guidance to manage chronic spine, joint, and muscular discomfort naturally.",
     benefits: ["Drug-free pain alleviation", "Myofascial trigger point release", "Active movement pacing", "Long-term recurrence prevention"],
-    iconName: "Zap"
+    iconName: "Zap",
+    image: "/images/conditions/back-pain.jpg"
   },
   {
     id: "mobility-rehab",
@@ -283,7 +300,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     shortDesc: "Comprehensive functional re-training to overcome prolonged bed rest, weakness, and loss of stamina.",
     detailedDesc: "Designed for individuals recovering from prolonged illness, hospital stays, or debility, systematically progressing from bed-bound exercises to independent walking.",
     benefits: ["Cardiopulmonary stamina rebuilding", "Sit-to-stand transitions", "Adaptive assistive device training", "Gradual daily activity resumption"],
-    iconName: "Footprints"
+    iconName: "Footprints",
+    image: "/images/conditions/balance-gait-training.jpg"
   }
 ];
 
@@ -354,7 +372,7 @@ export const HOW_IT_WORKS_STEPS = [
   {
     step: "03",
     title: "Physiotherapist Assignment",
-    desc: "We coordinate with our team of 8 physiotherapists across Hyderabad to assign an experienced specialist matching your location and condition.",
+    desc: "We coordinate with our team of 30+ physiotherapists across Hyderabad to assign an experienced specialist matching your location and condition.",
     iconName: "UserCog"
   },
   {
@@ -419,7 +437,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: "Do you provide physiotherapy across Hyderabad?",
-    answer: "Yes, PhysioSphere has a dedicated team of 8 physiotherapists positioned across Central, East, South, West, and North Hyderabad. We cover major residential hubs including Banjara Hills, Gachibowli, Kukatpally, Madhapur, Uppal, Dilsukhnagar, LB Nagar, Secunderabad, and many surrounding areas."
+    answer: "Yes, PhysioSphere has a dedicated team of 30+ physiotherapists positioned across Central, East, South, West, and North Hyderabad. We cover major residential hubs including Banjara Hills, Gachibowli, Kukatpally, Madhapur, Uppal, Dilsukhnagar, LB Nagar, Secunderabad, and many surrounding areas."
   },
   {
     question: "How many sessions will I need for my recovery?",
@@ -439,7 +457,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: "How will I know whether a physiotherapist is available in my area?",
-    answer: "Our team reviews incoming appointment requests and checks the current schedule and geographical location of our 8 physiotherapists. We promptly confirm slot availability and therapist assignment during our initial coordination call."
+    answer: "Our team reviews incoming appointment requests and checks the current schedule and geographical location of our 30+ physiotherapists. We promptly confirm slot availability and therapist assignment during our initial coordination call."
   },
   {
     question: "How can I contact PhysioSphere directly?",

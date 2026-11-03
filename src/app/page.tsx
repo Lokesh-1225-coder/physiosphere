@@ -15,6 +15,7 @@ import BookingSteps from "@/components/BookingSteps";
 import Testimonials from "@/components/Testimonials";
 import Locations from "@/components/Locations";
 import FAQ from "@/components/FAQ";
+import ClinicMap from "@/components/ClinicMap";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BookingModal from "@/components/BookingModal";
@@ -77,10 +78,13 @@ export default function HomePage() {
       {/* 14. Frequently Asked Questions (Interactive Accordion) */}
       <FAQ />
 
-      {/* 15. Contact Section */}
+      {/* 15. Central Clinic & Google Map Location */}
+      <ClinicMap />
+
+      {/* 16. Contact Section */}
       <Contact onOpenBooking={() => handleOpenBooking()} />
 
-      {/* 16. Footer */}
+      {/* 17. Footer */}
       <Footer onOpenBooking={() => handleOpenBooking()} />
 
       {/* High-Priority Persistent Booking Elements */}

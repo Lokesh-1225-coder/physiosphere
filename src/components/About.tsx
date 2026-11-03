@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Target, Compass, HeartHandshake, Home, Calendar } from "lucide-react";
 
 interface AboutProps {
@@ -35,17 +36,32 @@ export default function About({ onOpenBooking }: AboutProps) {
     <section id="about" className="py-8 sm:py-14 bg-white border-b border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-6 sm:mb-8 text-left">
-          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
-            About PhysioSphere
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-black text-[#0a2540] tracking-tight leading-tight">
-            Quality Physiotherapy at Your Doorstep
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 mt-2">
-            With a team of 8 licensed physiotherapists spread across Hyderabad, PhysioSphere makes rehabilitation accessible, convenient, and personalized for every patient.
-          </p>
+        {/* Section Header & Realistic Clinical Photograph (Page 2 Requirement) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-6 sm:mb-8">
+          <div className="lg:col-span-8 text-left">
+            <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
+              About PhysioSphere
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-black text-[#0a2540] tracking-tight leading-tight">
+              Quality Physiotherapy at Your Doorstep
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
+              With a team of 30+ licensed physiotherapists spread across Hyderabad, PhysioSphere makes rehabilitation accessible, convenient, and personalized for every patient.
+            </p>
+          </div>
+          <div className="lg:col-span-4 relative aspect-[16/10] sm:aspect-[2/1] lg:aspect-[4/3] rounded-2xl overflow-hidden border border-blue-100 shadow-2xs bg-slate-50">
+            <Image
+              src="/images/sections/about-physio.jpg"
+              alt="Physiotherapist assisting patient at home in Hyderabad"
+              fill
+              sizes="(max-width: 1024px) 100vw, 360px"
+              className="object-cover"
+              loading="lazy"
+            />
+            <div className="absolute bottom-2 left-2 px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-2xs text-[10px] font-bold text-slate-800 shadow-2xs">
+              Home Care Visit • Hyderabad
+            </div>
+          </div>
         </div>
 
         {/* 4 Pillars Grid - Single-column on mobile, 4-col on desktop */}
