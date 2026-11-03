@@ -32,6 +32,19 @@ body {
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Instant responsive mobile tapping with no delay */
+a, button, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Prevent iOS Safari auto-zoom on input focus */
+@media (max-width: 640px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* Deep Navy Blue for all Headings - Healthcare Clinical Standard */

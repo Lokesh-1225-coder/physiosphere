@@ -62,28 +62,28 @@ export default function BookingModal({
     const errors: Record<string, string> = {};
 
     if (!formData.fullName.trim()) {
-      errors.fullName = "Please enter your full name.";
+      errors.fullName = "Please enter patient name.";
     }
 
     const cleanPhone = formData.mobile.replace(/\D/g, "");
     if (!formData.mobile.trim()) {
-      errors.mobile = "Please enter your mobile number.";
+      errors.mobile = "Please enter mobile number.";
     } else if (cleanPhone.length < 10) {
-      errors.mobile = "Please enter a valid 10-digit mobile number.";
+      errors.mobile = "Enter a valid 10-digit number.";
     }
 
     if (!formData.email.trim()) {
-      errors.email = "Please enter your email address.";
+      errors.email = "Please enter email address.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errors.email = "Please enter a valid email address.";
+      errors.email = "Enter a valid email.";
     }
 
     if (!formData.address.trim()) {
-      errors.address = "Please provide your residential location in Hyderabad.";
+      errors.address = "Please enter your area in Hyderabad.";
     }
 
     if (!formData.description.trim()) {
-      errors.description = "Please describe the condition or symptoms requiring therapy.";
+      errors.description = "Please describe the problem or goals.";
     }
 
     setFormErrors(errors);
@@ -110,7 +110,7 @@ export default function BookingModal({
       const data: BookingResponse = await response.json();
 
       if (!response.ok || !data.success) {
-        throw new Error(data.error || "Failed to submit appointment request. Please try again.");
+        throw new Error(data.error || "Failed to submit request. Please try again.");
       }
 
       setSubmissionSuccess(true);
@@ -143,32 +143,32 @@ export default function BookingModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="booking-modal-title"
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto"
+      className="fixed inset-0 z-50 flex flex-col sm:flex-row sm:items-center sm:justify-center bg-black/60 backdrop-blur-2xs overflow-hidden"
       onClick={resetAndClose}
     >
       <div
-        className="relative w-full max-w-xl bg-white rounded-t-2xl sm:rounded-xl shadow-xl border border-slate-200 overflow-hidden my-0 sm:my-auto max-h-[92vh] sm:max-h-[90vh] flex flex-col"
+        className="relative w-full h-full sm:h-auto sm:max-h-[92vh] sm:max-w-lg bg-white sm:rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="bg-[#0a2540] text-white p-4 sm:p-5 flex items-center justify-between border-b border-blue-900 flex-shrink-0">
+        {/* Header - Sticky */}
+        <div className="bg-[#0a2540] text-white px-4 py-3.5 sm:px-6 sm:py-4 flex items-center justify-between border-b border-blue-900/60 flex-shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-md bg-blue-600 flex items-center justify-center text-white">
+            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
               <Calendar className="w-4 h-4" />
             </div>
             <div>
               <h2 id="booking-modal-title" className="text-base sm:text-lg font-bold leading-tight">
                 Book a Home Visit
               </h2>
-              <p className="text-xs text-blue-200">
-                Doorstep Physiotherapy Across Hyderabad
+              <p className="text-[11px] text-blue-200">
+                Doorstep Physiotherapy in Hyderabad
               </p>
             </div>
           </div>
           <button
             type="button"
             onClick={resetAndClose}
-            className="p-1.5 text-blue-200 hover:text-white rounded-md transition cursor-pointer"
+            className="w-9 h-9 flex items-center justify-center text-blue-200 hover:text-white rounded-lg transition active:bg-white/10"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -179,23 +179,23 @@ export default function BookingModal({
         <div className="p-4 sm:p-6 overflow-y-auto flex-1">
           {submissionSuccess ? (
             /* Success Confirmation State */
-            <div className="text-center py-6 sm:py-8 space-y-4">
+            <div className="text-center py-6 space-y-4">
               <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#0a2540] leading-snug">
-                Your appointment request has been submitted successfully!
+              <h3 className="text-lg font-bold text-[#0a2540] leading-snug">
+                Appointment Request Submitted!
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                Our PhysioSphere team will contact you shortly to discuss your requirements and appointment availability.
+              <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                Our team will contact you shortly to confirm your therapist and appointment slot.
               </p>
 
-              <div className="bg-[#f0f7fd] border border-blue-200 rounded-xl p-4 max-w-md mx-auto text-left space-y-2 mt-4 text-xs">
-                <span className="font-bold text-[#0a2540] block">Need immediate assistance?</span>
+              <div className="bg-[#f0f7fd] border border-blue-200 rounded-xl p-3.5 max-w-sm mx-auto text-left space-y-2 text-xs">
+                <span className="font-bold text-[#0a2540] block">Need immediate coordination?</span>
                 <div className="grid grid-cols-2 gap-2">
                   <a
                     href={`tel:${BRAND_INFO.phonePrimary}`}
-                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg border border-slate-200 bg-white font-bold text-slate-800 hover:bg-slate-50 transition"
+                    className="min-h-[40px] flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white font-bold text-slate-800"
                   >
                     <Phone className="w-3.5 h-3.5 text-blue-600" />
                     <span>Call Us</span>
@@ -204,7 +204,7 @@ export default function BookingModal({
                     href={BRAND_INFO.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-emerald-600 text-white font-bold hover:bg-emerald-700 transition"
+                    className="min-h-[40px] flex items-center justify-center gap-1.5 rounded-lg bg-emerald-600 text-white font-bold"
                   >
                     <WhatsAppIcon className="w-4 h-4 fill-white" />
                     <span>WhatsApp</span>
@@ -216,17 +216,17 @@ export default function BookingModal({
                 <button
                   type="button"
                   onClick={resetAndClose}
-                  className="px-6 py-2.5 rounded-xl bg-[#0a2540] hover:bg-[#0c2f52] text-white font-bold text-xs transition cursor-pointer"
+                  className="w-full sm:w-auto min-h-[44px] px-6 py-2.5 rounded-xl bg-[#0a2540] text-white font-bold text-xs"
                 >
                   Done
                 </button>
               </div>
             </div>
           ) : (
-            /* Booking Form */
+            /* Mobile-Optimized Form */
             <form onSubmit={handleSubmit} noValidate className="space-y-3.5">
               {serverError && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-md flex items-start gap-2.5 text-xs text-red-700">
+                <div className="p-3 bg-red-50 border border-red-200 rounded-xl flex items-start gap-2 text-xs text-red-700">
                   <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
                   <span>{serverError}</span>
                 </div>
@@ -247,7 +247,7 @@ export default function BookingModal({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* Full Name */}
                 <div>
-                  <label htmlFor="modal-name" className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label htmlFor="modal-name" className="block text-xs font-bold text-slate-700 mb-1">
                     Patient Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -260,16 +260,16 @@ export default function BookingModal({
                       setFormData({ ...formData, fullName: e.target.value });
                       if (formErrors.fullName) setFormErrors({ ...formErrors, fullName: "" });
                     }}
-                    className={`w-full px-3 py-2 rounded-md border text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 ${
+                    className={`w-full min-h-[46px] px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-900 placeholder:text-slate-400 ${
                       formErrors.fullName ? "border-red-400 bg-red-50/50" : "border-slate-300 focus:border-blue-600"
                     }`}
                   />
                   {formErrors.fullName && <p className="text-[11px] text-red-600 mt-0.5">{formErrors.fullName}</p>}
                 </div>
 
-                {/* Mobile Number (Numeric Keypad on Mobile) */}
+                {/* Mobile Number with Numeric Keypad */}
                 <div>
-                  <label htmlFor="modal-phone" className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label htmlFor="modal-phone" className="block text-xs font-bold text-slate-700 mb-1">
                     Mobile Number <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -284,7 +284,7 @@ export default function BookingModal({
                       setFormData({ ...formData, mobile: e.target.value });
                       if (formErrors.mobile) setFormErrors({ ...formErrors, mobile: "" });
                     }}
-                    className={`w-full px-3 py-2 rounded-md border text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 ${
+                    className={`w-full min-h-[46px] px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-900 placeholder:text-slate-400 ${
                       formErrors.mobile ? "border-red-400 bg-red-50/50" : "border-slate-300 focus:border-blue-600"
                     }`}
                   />
@@ -295,7 +295,7 @@ export default function BookingModal({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* Email Address */}
                 <div>
-                  <label htmlFor="modal-email" className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label htmlFor="modal-email" className="block text-xs font-bold text-slate-700 mb-1">
                     Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -309,7 +309,7 @@ export default function BookingModal({
                       setFormData({ ...formData, email: e.target.value });
                       if (formErrors.email) setFormErrors({ ...formErrors, email: "" });
                     }}
-                    className={`w-full px-3 py-2 rounded-md border text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 ${
+                    className={`w-full min-h-[46px] px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-900 placeholder:text-slate-400 ${
                       formErrors.email ? "border-red-400 bg-red-50/50" : "border-slate-300 focus:border-blue-600"
                     }`}
                   />
@@ -318,14 +318,14 @@ export default function BookingModal({
 
                 {/* Service Selection */}
                 <div>
-                  <label htmlFor="modal-service" className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label htmlFor="modal-service" className="block text-xs font-bold text-slate-700 mb-1">
                     Condition / Service
                   </label>
                   <select
                     id="modal-service"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-3 py-2 rounded-md border border-slate-300 text-xs sm:text-sm text-slate-900 bg-white focus:border-blue-600"
+                    className="w-full min-h-[46px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-sm text-slate-900 bg-white focus:border-blue-600"
                   >
                     <option value="General Physiotherapy Consultation">General Consultation</option>
                     <optgroup label="Specialized Disciplines">
@@ -344,20 +344,20 @@ export default function BookingModal({
 
               {/* Hyderabad Address */}
               <div>
-                <label htmlFor="modal-address" className="block text-xs font-semibold text-slate-700 mb-1">
+                <label htmlFor="modal-address" className="block text-xs font-bold text-slate-700 mb-1">
                   Location / Area in Hyderabad <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="modal-address"
                   type="text"
                   required
-                  placeholder="e.g. Madhapur, Flat 302, Green Meadows, Hyderabad"
+                  placeholder="e.g. Madhapur, Kukatpally, Banjara Hills"
                   value={formData.address}
                   onChange={(e) => {
                     setFormData({ ...formData, address: e.target.value });
                     if (formErrors.address) setFormErrors({ ...formErrors, address: "" });
                   }}
-                  className={`w-full px-3 py-2 rounded-md border text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 ${
+                  className={`w-full min-h-[46px] px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-900 placeholder:text-slate-400 ${
                     formErrors.address ? "border-red-400 bg-red-50/50" : "border-slate-300 focus:border-blue-600"
                   }`}
                 />
@@ -366,51 +366,51 @@ export default function BookingModal({
 
               {/* Description */}
               <div>
-                <label htmlFor="modal-desc" className="block text-xs font-semibold text-slate-700 mb-1">
-                  Description of the Problem <span className="text-red-500">*</span>
+                <label htmlFor="modal-desc" className="block text-xs font-bold text-slate-700 mb-1">
+                  Symptoms / Problem <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   id="modal-desc"
-                  rows={3}
+                  rows={2}
                   required
-                  placeholder="Describe your pain, symptoms, duration, or post-surgical recovery goals..."
+                  placeholder="Briefly describe pain, symptoms, or surgery details..."
                   value={formData.description}
                   onChange={(e) => {
                     setFormData({ ...formData, description: e.target.value });
                     if (formErrors.description) setFormErrors({ ...formErrors, description: "" });
                   }}
-                  className={`w-full px-3 py-2 rounded-md border text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 ${
+                  className={`w-full px-3.5 py-2.5 rounded-xl border text-base sm:text-sm text-slate-900 placeholder:text-slate-400 ${
                     formErrors.description ? "border-red-400 bg-red-50/50" : "border-slate-300 focus:border-blue-600"
                   }`}
                 />
                 {formErrors.description && <p className="text-[11px] text-red-600 mt-0.5">{formErrors.description}</p>}
               </div>
 
-              {/* Submit Button - Enlarged */}
+              {/* Submit Button */}
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 px-6 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed text-base shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99]"
+                  className="w-full min-h-[48px] px-6 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed text-base shadow-sm"
                 >
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>Submitting Appointment Request...</span>
+                      <span>Submitting...</span>
                     </>
                   ) : (
-                    <span>Request Doorstep Appointment</span>
+                    <span>Request Appointment</span>
                   )}
                 </button>
               </div>
 
-              {/* Quick direct links */}
+              {/* Direct links */}
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                <span>Or contact directly:</span>
+                <span>Or direct:</span>
                 <div className="flex items-center gap-3">
                   <a href={`tel:${BRAND_INFO.phonePrimary}`} className="text-blue-600 hover:underline font-bold flex items-center gap-1">
                     <Phone className="w-3.5 h-3.5" />
-                    <span>Call {BRAND_INFO.phonePrimary}</span>
+                    <span>Call</span>
                   </a>
                   <a href={BRAND_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline font-bold flex items-center gap-1">
                     <WhatsAppIcon className="w-3.5 h-3.5 fill-emerald-600" />

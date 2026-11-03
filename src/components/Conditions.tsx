@@ -65,33 +65,33 @@ export default function Conditions({ onSelectCondition }: ConditionsProps) {
         );
 
   return (
-    <section id="conditions" className="py-14 sm:py-20 bg-white border-b border-blue-100">
+    <section id="conditions" className="py-8 sm:py-14 bg-white border-b border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 text-center sm:text-left">
-          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
+        <div className="max-w-3xl mb-5 sm:mb-7 text-left">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
             Clinical Conditions
           </p>
-          <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#0a2540] tracking-tight leading-tight">
-            Common Conditions Treated at Home
+          <h2 className="text-2xl sm:text-3xl font-black text-[#0a2540] tracking-tight leading-tight">
+            Common Conditions Treated
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 mt-2">
-            Targeted home rehabilitation for acute pain, chronic musculoskeletal conditions, and surgical recovery.
+          <p className="text-sm sm:text-base text-slate-600 mt-1">
+            Targeted home rehabilitation across Hyderabad for pain relief, spine care, and recovery.
           </p>
         </div>
 
-        {/* Filter Pills with active cursor highlighting */}
-        <div className="flex flex-wrap items-center gap-2 mb-10">
+        {/* Filter Pills - Horizontal scrolling on mobile, wrap on desktop */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-2 mb-6 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
               type="button"
               onClick={() => setActiveFilter(cat)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition cursor-pointer flex-shrink-0 ${
                 activeFilter === cat
-                  ? "bg-[#0a2540] text-white shadow-sm"
-                  : "bg-[#f0f7fd] text-slate-700 hover:bg-blue-100/80 hover:text-blue-800 border border-blue-100"
+                  ? "bg-[#0a2540] text-white"
+                  : "bg-[#f0f7fd] text-slate-700 hover:bg-blue-100 border border-blue-100"
               }`}
             >
               {cat}
@@ -99,61 +99,55 @@ export default function Conditions({ onSelectCondition }: ConditionsProps) {
           ))}
         </div>
 
-        {/* 16 Conditions Grid with High-Quality Realistic Photographs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 16 Conditions Grid - Responsive: 1-col on small mobile, 2-col on sm, 4-col on lg */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredConditions.map((item: ConditionItem) => {
             const Icon = iconMap[item.iconName] || Activity;
             return (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs highlight-card flex flex-col justify-between group"
+                className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-2xs highlight-card flex flex-col justify-between"
               >
                 <div>
-                  {/* High Quality Realistic Photograph */}
-                  <div className="relative h-44 w-full overflow-hidden bg-slate-100">
+                  {/* Compact, Consistent Image Ratio */}
+                  <div className="relative h-36 w-full overflow-hidden bg-slate-100">
                     <Image
                       src={item.image}
-                      alt={`${item.name} physiotherapy treatment at home`}
+                      alt={item.name}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover"
+                      loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/80 via-transparent to-transparent opacity-80" />
-                    
-                    {/* Category Tag on Photo */}
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-md text-[#0a2540] shadow-xs">
-                        {item.category}
-                      </span>
-                    </div>
-
-                    {/* Small Icon Badge */}
-                    <div className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md">
-                      <Icon className="w-4 h-4" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/70 via-transparent to-transparent" />
+                    <span className="absolute top-2.5 left-2.5 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/95 text-[#0a2540] shadow-2xs">
+                      {item.category}
+                    </span>
+                    <div className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xs">
+                      <Icon className="w-3.5 h-3.5" />
                     </div>
                   </div>
 
-                  {/* Text Content */}
-                  <div className="p-5">
-                    <h3 className="text-base sm:text-lg font-bold text-[#0a2540] mb-2 leading-snug group-hover:text-blue-600 transition-colors">
+                  {/* Compact Text Content */}
+                  <div className="p-3.5 sm:p-4">
+                    <h3 className="text-sm sm:text-base font-bold text-[#0a2540] mb-1 leading-snug">
                       {item.name}
                     </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
                       {item.shortDesc}
                     </p>
                   </div>
                 </div>
 
-                {/* Card Action Button */}
-                <div className="p-5 pt-0">
+                {/* Accessible Touch Target Button */}
+                <div className="p-3.5 sm:p-4 pt-0">
                   <button
                     type="button"
                     onClick={() => onSelectCondition(item.name)}
-                    className="w-full inline-flex items-center justify-between py-2.5 px-3.5 rounded-lg bg-[#f0f7fd] hover:bg-blue-600 text-blue-700 hover:text-white text-xs sm:text-sm font-bold transition-all cursor-pointer border border-blue-200/80 hover:border-blue-600 shadow-2xs"
+                    className="w-full min-h-[40px] inline-flex items-center justify-between py-2 px-3 rounded-lg bg-[#f0f7fd] hover:bg-blue-600 text-blue-700 hover:text-white text-xs font-bold transition border border-blue-200/70 hover:border-blue-600 cursor-pointer"
                   >
                     <span>Book for {item.name.split(" ")[0]}</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -161,19 +155,18 @@ export default function Conditions({ onSelectCondition }: ConditionsProps) {
           })}
         </div>
 
-        {/* Clinical Note with Consultation CTA */}
-        <div className="mt-12 p-5 sm:p-6 rounded-2xl bg-[#f0f7fd] border border-blue-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-xs sm:text-sm text-slate-700 leading-relaxed text-center sm:text-left">
-            <strong className="text-[#0a2540] font-bold block sm:inline">Clinical Note: </strong>
-            Recovery timelines vary depending on diagnosis, age, and individual compliance. Personalized recovery milestones are established during your initial home assessment.
-          </div>
+        {/* Minimal Clinical Note */}
+        <div className="mt-8 p-3.5 sm:p-4 rounded-xl bg-[#f0f7fd] border border-blue-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-700">
+          <span>
+            <strong className="text-[#0a2540] font-bold">Clinical Note: </strong>
+            Personalized treatment milestones are established during your initial home assessment.
+          </span>
           <button
             type="button"
             onClick={() => onSelectCondition("General Physiotherapy Consultation")}
-            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all hover:scale-[1.02] cursor-pointer"
+            className="flex-shrink-0 w-full sm:w-auto min-h-[40px] px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition"
           >
-            <Calendar className="w-4 h-4" />
-            <span>Consult Our Team</span>
+            Consult Our Team
           </button>
         </div>
 

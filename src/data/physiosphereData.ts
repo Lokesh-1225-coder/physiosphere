@@ -53,8 +53,7 @@ export const BRAND_INFO = {
     title: "Senior Home Physiotherapist",
     experienceYears: "4+",
     patientsTreated: "600+",
-    image: "/images/sections/doctor-venu.jpg",
-    bio: "Dr. Venu (B.P.T) is an experienced and dedicated physiotherapist with over 4 years of clinical and home rehabilitation expertise. Having successfully guided more than 600 patients back to pain-free movement, Dr. Venu specializes in thorough patient assessment, personalized exercise prescriptions, manual therapy, and compassionate bedside care. His patient-first philosophy focuses on restoring confidence, daily functional independence, and preventing long-term recurrence."
+    bio: "Dr. Venu (B.P.T) is an experienced physiotherapist with 4+ years of clinical and home rehabilitation expertise, having treated over 600 patients across Hyderabad with personalized manual therapy and exercise protocols."
   }
 };
 
