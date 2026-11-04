@@ -1,3 +1,10 @@
+export interface TeamPhotoItem {
+  id: string;
+  image: string;
+  title: string;
+  caption: string;
+}
+
 export interface ConditionItem {
   id: string;
   name: string;
@@ -61,9 +68,11 @@ export const BRAND_INFO = {
     name: "Dr. Venu",
     qualification: "PT",
     title: "Senior Home Physiotherapist (PT)",
+    hospitalAffiliation: "Trauma Centre & Superspecialty Hospital Institute of Medical Sciences (IMS), Banaras Hindu University",
     experienceYears: "4+",
     patientsTreated: "600+",
-    bio: "Dr. Venu (PT) is an experienced physiotherapist with 4+ years of clinical and home rehabilitation expertise, having treated over 600 patients across Hyderabad with personalized manual therapy and exercise protocols."
+    bio: "Dr. Venu (PT) is an experienced physiotherapist with 4+ years of clinical and rehabilitation expertise from Trauma Centre & Superspecialty Hospital, Institute of Medical Sciences (IMS), Banaras Hindu University. Having treated over 600 patients across Hyderabad with personalized manual therapy and evidence-based home rehabilitation protocols.",
+    image: "/images/doctor/dr-venu.jpg"
   }
 };
 
@@ -602,5 +611,32 @@ export const HYDERABAD_ZONES: LocationZone[] = [
       "Shakthi Nagar",
       "Shivarampalli"
     ]
+  }
+];
+
+export const TEAM_PHOTOS: TeamPhotoItem[] = [
+  {
+    id: "team-photo-1",
+    image: "/images/team/team-1.jpg",
+    title: "Dedicated Clinical Home Care",
+    caption: "Qualified physiotherapists providing focused manual assessment and functional guidance at patient homes."
+  },
+  {
+    id: "team-photo-2",
+    image: "/images/team/team-2.jpg",
+    title: "1-on-1 Patient Rehabilitation",
+    caption: "Personalized exercise routines and mobility conditioning delivered safely in Hyderabad residential communities."
+  },
+  {
+    id: "team-photo-3",
+    image: "/images/team/team-3.jpg",
+    title: "Evidence-Based Manual Therapy",
+    caption: "Targeted mobilization, spinal alignment, and recovery protocols customized for patient healing."
+  },
+  {
+    id: "team-photo-4",
+    image: "/images/team/team-4.jpg",
+    title: "Coordinated Citywide Network",
+    caption: "Our team of 30+ licensed physiotherapists positioned across Central, East, West, North, and South Hyderabad."
   }
 ];

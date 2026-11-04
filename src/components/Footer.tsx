@@ -77,7 +77,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
               <li><a href="#about" className="hover:text-blue-400 transition-colors">About Us</a></li>
               <li><a href="#services" className="hover:text-blue-400 transition-colors">Services</a></li>
               <li><a href="#conditions" className="hover:text-blue-400 transition-colors">Conditions Treated</a></li>
-              <li><a href="#physiotherapists" className="hover:text-blue-400 transition-colors">Our Team</a></li>
+              <li><a href="#our-team" className="hover:text-blue-400 transition-colors">Our Team</a></li>
               <li><a href="#locations" className="hover:text-blue-400 transition-colors">Hyderabad Locations</a></li>
               <li><a href="#faq" className="hover:text-blue-400 transition-colors">FAQs</a></li>
               <li><a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a></li>

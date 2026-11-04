@@ -19,7 +19,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     { name: "About", href: "#about", id: "about" },
     { name: "Services", href: "#services", id: "services" },
     { name: "Conditions", href: "#conditions", id: "conditions" },
-    { name: "Physiotherapists", href: "#physiotherapists", id: "physiotherapists" },
+    { name: "Our Team", href: "#our-team", id: "our-team" },
     { name: "Benefits", href: "#benefits", id: "benefits" },
     { name: "Locations", href: "#locations", id: "locations" },
     { name: "FAQ", href: "#faq", id: "faq" },
