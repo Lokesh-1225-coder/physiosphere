@@ -43,7 +43,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     const sectionIds = ["hero", ...navLinks.map((l) => l.id)];
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 125;
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i]);
         if (el && el.offsetTop <= scrollPosition) {
@@ -63,46 +63,47 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-2xs">
-      {/* Top Clinical Strip - Desktop Only */}
-      <div className="hidden lg:block bg-[#0a2540] text-slate-200 text-xs py-2 px-6 border-b border-blue-900/50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-white font-medium">Home Physiotherapy Across Hyderabad</span>
-            <span className="text-blue-300/40">|</span>
-            <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Team of 30+ Licensed Physiotherapists
-            </span>
-            <span className="text-blue-300/40">|</span>
-            <span className="text-blue-200">Hours: Mon-Sun: 9:00am - 9:00pm</span>
-          </div>
-          <div className="flex items-center gap-5">
-            <a
-              href={`tel:${BRAND_INFO.phonePrimary}`}
-              className="hover:text-white transition flex items-center gap-1.5 font-medium"
-            >
-              <Phone className="w-3.5 h-3.5 text-blue-400" />
-              <span>{BRAND_INFO.phoneFormattedPrimary}</span>
-            </a>
-            <a
-              href={BRAND_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1.5 font-semibold"
-            >
-              <WhatsAppIcon className="w-3.5 h-3.5 fill-emerald-400" />
-              <span>WhatsApp</span>
-            </a>
+    <>
+      <header className="fixed top-0 left-0 right-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-2xs">
+        {/* Top Clinical Strip - Desktop Only */}
+        <div className="hidden lg:block bg-[#0a2540] text-slate-200 text-xs h-9 px-6 border-b border-blue-900/50">
+          <div className="max-w-7xl mx-auto h-full flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-white font-medium">Home Physiotherapy Across Hyderabad</span>
+              <span className="text-blue-300/40">|</span>
+              <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Team of 30+ Licensed Physiotherapists
+              </span>
+              <span className="text-blue-300/40">|</span>
+              <span className="text-blue-200">Hours: Mon-Sun: 9:00am - 9:00pm</span>
+            </div>
+            <div className="flex items-center gap-5">
+              <a
+                href={`tel:${BRAND_INFO.phonePrimary}`}
+                className="hover:text-white transition flex items-center gap-1.5 font-medium"
+              >
+                <Phone className="w-3.5 h-3.5 text-blue-400" />
+                <span>{BRAND_INFO.phoneFormattedPrimary}</span>
+              </a>
+              <a
+                href={BRAND_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1.5 font-semibold"
+              >
+                <WhatsAppIcon className="w-3.5 h-3.5 fill-emerald-400" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Navbar: Responsive height (15 on mobile, 18-20 on desktop) */}
-      <nav
-        aria-label="Main Navigation"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"
-      >
+        {/* Main Navbar: Responsive height (16 on mobile, 20 on desktop) */}
+        <nav
+          aria-label="Main Navigation"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"
+        >
         {/* Brand Logo & Name (Slightly larger logo per instructions) */}
         <Link
           href="#hero"
@@ -192,7 +193,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
 
       {/* Mobile Drawer Menu - Clean, Full Screen Overlay Prevention, Fast & Tap-Friendly */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-15 sm:top-18 bottom-0 bg-white z-50 overflow-y-auto px-4 py-5 flex flex-col justify-between border-t border-slate-200">
+        <div className="lg:hidden fixed inset-x-0 top-16 sm:top-20 bottom-0 bg-white z-40 overflow-y-auto px-4 py-5 flex flex-col justify-between border-t border-slate-200">
           <div className="flex flex-col space-y-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
@@ -248,5 +249,9 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         </div>
       )}
     </header>
-  );
+
+    {/* Spacer to preserve normal page flow beneath fixed navbar */}
+    <div className="h-16 sm:h-20 lg:h-[116px] w-full flex-shrink-0" aria-hidden="true" />
+  </>
+);
 }

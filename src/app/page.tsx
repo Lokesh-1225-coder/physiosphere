@@ -35,12 +35,13 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-white pb-24 md:pb-0 overflow-x-hidden">
-      {/* 1. Sticky Navigation Bar */}
+    <>
+      {/* 1. Fixed Top Navigation Bar */}
       <Navbar onOpenBooking={() => handleOpenBooking()} />
 
-      {/* 2. Hero Section */}
-      <Hero onOpenBooking={() => handleOpenBooking()} />
+      <main className="min-h-screen flex flex-col bg-white pb-24 md:pb-0 overflow-x-hidden">
+        {/* 2. Hero Section */}
+        <Hero onOpenBooking={() => handleOpenBooking()} />
 
       {/* 3. About PhysioSphere */}
       <About onOpenBooking={() => handleOpenBooking()} />
@@ -97,5 +98,6 @@ export default function HomePage() {
         initialService={prefilledService}
       />
     </main>
+    </>
   );
 }
