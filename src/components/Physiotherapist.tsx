@@ -222,12 +222,12 @@ export default function Physiotherapist({ onOpenBooking }: PhysiotherapistProps)
 
           {/* Interactive Sliding Carousel Container */}
           <div
-            className="relative rounded-2xl overflow-hidden border border-blue-100 bg-slate-900 shadow-md group"
+            className="relative rounded-2xl overflow-hidden border border-blue-100 bg-slate-950 shadow-md group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            {/* Viewport for current slide */}
-            <div className="relative aspect-[16/10] sm:aspect-[21/9] lg:aspect-[24/10] w-full overflow-hidden">
+            {/* Viewport for current slide with adaptive ambient backdrop & full photo containment */}
+            <div className="relative h-[340px] sm:h-[440px] md:h-[500px] lg:h-[560px] w-full overflow-hidden flex items-center justify-center">
               {TEAM_PHOTOS.map((item, index) => {
                 const isActive = index === currentSlide;
                 return (
@@ -237,39 +237,53 @@ export default function Physiotherapist({ onOpenBooking }: PhysiotherapistProps)
                       isActive ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"
                     }`}
                   >
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 1280px) 100vw, 1200px"
-                      className="object-cover"
-                      priority={index === 0}
-                    />
-                    
-                    {/* Dark gradient overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                    {/* Ambient Blurred Backdrop to avoid black dead space */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+                      <Image
+                        src={item.image}
+                        alt=""
+                        fill
+                        sizes="100vw"
+                        className="object-cover blur-2xl opacity-35 scale-110"
+                      />
+                      <div className="absolute inset-0 bg-slate-950/40" />
+                    </div>
 
-                    {/* Caption Box */}
-                    <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 text-white max-w-2xl">
-                      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-600 text-white inline-block mb-1.5 shadow-2xs">
-                        PhysioSphere Clinical Team
-                      </span>
-                      <h4 className="text-base sm:text-2xl font-bold leading-tight">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">
-                        {item.caption}
-                      </p>
+                    {/* Main Photograph: object-contain ensures 100% of the image fits cleanly without cropping */}
+                    <div className="relative w-full h-full p-2 sm:p-4 md:p-6 flex items-center justify-center">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 1280px) 100vw, 1200px"
+                        className="object-contain drop-shadow-md"
+                        priority={index === 0}
+                      />
+                    </div>
+
+                    {/* Clean Clinical Caption Pill */}
+                    <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 z-20 pointer-events-none max-w-sm sm:max-w-md">
+                      <div className="bg-slate-950/80 backdrop-blur-md px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-white/15 text-white shadow-lg">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400 block mb-0.5">
+                          PhysioSphere Team • {index + 1} of {TEAM_PHOTOS.length}
+                        </span>
+                        <h4 className="text-xs sm:text-sm font-bold leading-snug">
+                          {item.title}
+                        </h4>
+                        <p className="text-[11px] text-slate-300 mt-0.5 hidden sm:block leading-relaxed">
+                          {item.caption}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 );
               })}
 
-              {/* Prev / Next Click Overlays */}
+              {/* Prev / Next Click Overlays - Touch friendly on mobile, hover on desktop */}
               <button
                 type="button"
                 onClick={prevSlide}
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-2xs transition opacity-0 group-hover:opacity-100"
+                className="absolute left-2.5 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center backdrop-blur-sm transition border border-white/20 shadow-md cursor-pointer opacity-80 sm:opacity-0 sm:group-hover:opacity-100"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -278,7 +292,7 @@ export default function Physiotherapist({ onOpenBooking }: PhysiotherapistProps)
               <button
                 type="button"
                 onClick={nextSlide}
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-2xs transition opacity-0 group-hover:opacity-100"
+                className="absolute right-2.5 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center backdrop-blur-sm transition border border-white/20 shadow-md cursor-pointer opacity-80 sm:opacity-0 sm:group-hover:opacity-100"
                 aria-label="Next slide"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -286,7 +300,7 @@ export default function Physiotherapist({ onOpenBooking }: PhysiotherapistProps)
             </div>
 
             {/* Dot Pagination Bar */}
-            <div className="absolute bottom-2.5 right-4 z-20 flex items-center gap-1.5">
+            <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-5 z-20 flex items-center gap-1.5 bg-slate-950/60 backdrop-blur-sm px-2.5 py-1.5 rounded-full border border-white/10">
               {TEAM_PHOTOS.map((_, idx) => (
                 <button
                   key={idx}
@@ -295,44 +309,12 @@ export default function Physiotherapist({ onOpenBooking }: PhysiotherapistProps)
                   className={`h-2 rounded-full transition-all cursor-pointer ${
                     currentSlide === idx
                       ? "w-6 bg-blue-500 shadow-sm"
-                      : "w-2 bg-white/50 hover:bg-white/80"
+                      : "w-2 bg-white/40 hover:bg-white/80"
                   }`}
                   aria-label={`Jump to photo ${idx + 1}`}
                 />
               ))}
             </div>
-          </div>
-
-          {/* 4 Interactive Thumbnails (Click to Select) */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-3">
-            {TEAM_PHOTOS.map((photo, idx) => {
-              const isSelected = idx === currentSlide;
-              return (
-                <button
-                  key={photo.id}
-                  type="button"
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`relative aspect-[16/10] rounded-xl overflow-hidden border-2 transition-all cursor-pointer text-left ${
-                    isSelected
-                      ? "border-blue-600 ring-2 ring-blue-500/30 scale-[1.02] shadow-sm"
-                      : "border-slate-200 hover:border-blue-300 opacity-75 hover:opacity-100"
-                  }`}
-                >
-                  <Image
-                    src={photo.image}
-                    alt={photo.title}
-                    fill
-                    sizes="(max-width: 640px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent p-2 flex items-end">
-                    <span className="text-[11px] font-bold text-white truncate">
-                      Photo {idx + 1}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
           </div>
         </div>
 
